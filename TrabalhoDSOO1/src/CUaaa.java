@@ -1,5 +1,7 @@
 
 public class CUaaa {
 	
-	private int w;
+	public static void main(String[] args) {
+		System.out.println("Cu");
+	}
 }
