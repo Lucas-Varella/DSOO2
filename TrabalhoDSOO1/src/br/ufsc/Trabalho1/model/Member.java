@@ -20,5 +20,6 @@ public class Member extends User{
 	public void setTrain(List<String> train) {
 		this.training = train;
 	}
+	//thecommit
 
 }
