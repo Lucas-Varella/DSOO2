@@ -4,21 +4,21 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Trainee extends User{
+public class Member extends User{
 
-	private List<String> train;
+	private List<String> training;
 	
-	public Trainee(String cpf, String rg, String name, Date birthday, String address) {
+	public Member(String cpf, String rg, String name, Date birthday, String address) {
 		super(cpf, rg, name, birthday, address);
 		this.setTrain(new ArrayList());
 	}
 
 	public List<String> getTrain() {
-		return train;
+		return training;
 	}
 
 	public void setTrain(List<String> train) {
-		this.train = train;
+		this.training = train;
 	}
 
 }
