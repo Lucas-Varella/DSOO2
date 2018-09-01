@@ -137,7 +137,7 @@ public class LoginScreen extends javax.swing.JFrame {
     private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
     	
     	try {
-	    	if (MainController.isValid(jTextField1.getText())) {
+	    	if (MainController.isValid(jTextField1.getText(), jTextField2.getText())) {
 		    	setVisible(false);
 		    	ScreenCtrl.getInstance().showMainScreen();
 	    	} else {

@@ -1,5 +1,7 @@
 package br.ufsc.Trabalho1.control;
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 import components.RegistryHandler.DataHandler;
@@ -30,13 +32,14 @@ public class MainController {
 	}
 	
 
-	public static boolean isValid(String text) throws Exception {
+	public static boolean isValid(String username, String password) throws Exception {
 		
+		ArrayList memberList = PersistanceCtrl.getInstance().getMemberList().getList();
 		boolean exists = dataHandler.exists(PersistanceCtrl.getInstance().
-				getUsernameList().getList(), text);
+				getUsernameList().getList(), username);
 		
 		if(exists) 
-			return auth.authentication();
+			return auth.authentication(username, password, memberList);
 		else {
 			throw new Exception("No usernames match the field");
 		}
