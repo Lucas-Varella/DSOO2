@@ -1,11 +1,14 @@
 package br.ufsc.Trabalho1.view;
 
+import br.ufsc.Trabalho1.control.ScreenCtrl;
+
 public class MainScreen extends javax.swing.JFrame {
 
     /**
      * Creates new form MainScreen
+     * @param screenCtrl 
      */
-    public MainScreen() {
+    public MainScreen(ScreenCtrl screenCtrl) {
         initComponents();
     }
 
@@ -139,7 +142,7 @@ public class MainScreen extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainScreen().setVisible(true);
+                new MainScreen(null).setVisible(true);
             }
         });
     }

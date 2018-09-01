@@ -2,14 +2,14 @@ package br.ufsc.Trabalho1.model;
 
 import java.util.Date;
 
-public class Employee extends User{
+public class Staff extends User{
 	
 	private String position;
 	private int salary;
 	private String username;
 	private String password;
 
-	public Employee(String cpf, String rg, String name, Date birthday, String address, 
+	public Staff(String cpf, String rg, String name, Date birthday, String address, 
 			String position, int salary, String username, String password) {
 		
 		super(cpf, rg, name, birthday, address);

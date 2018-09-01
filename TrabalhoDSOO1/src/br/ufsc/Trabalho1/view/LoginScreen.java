@@ -1,13 +1,14 @@
 package br.ufsc.Trabalho1.view;
 
-import br.ufsc.Trabalho1.control.LoginScreenCtrl;
+import br.ufsc.Trabalho1.control.ScreenCtrl;
+import br.ufsc.Trabalho1.control.MainController;
 
 public class LoginScreen extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame
      */
-    public LoginScreen(LoginScreenCtrl screenCtrl) {
+    public LoginScreen(ScreenCtrl screenCtrl) {
         initComponents();
     }
 
@@ -134,7 +135,8 @@ public class LoginScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
-        
+    	setVisible(false);
+    	ScreenCtrl.getInstance().showMainScreen();
     }//GEN-LAST:event_OKActionPerformed
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed

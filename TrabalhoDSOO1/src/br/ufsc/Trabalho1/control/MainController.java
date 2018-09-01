@@ -1,5 +1,6 @@
 package br.ufsc.Trabalho1.control;
 
+
 public class MainController {
 	
 	private static final MainController instance = new MainController();
@@ -13,7 +14,14 @@ public class MainController {
 		return instance;
 	}
 	
+	public void showLoginScreen() {
+		ScreenCtrl.getInstance().menu();
+	}
+
+
 	public void showMainScreen() {
-		LoginScreenCtrl.getInstance().menu();
-}
+		
+	}
+	
+	
 }

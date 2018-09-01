@@ -1,6 +1,6 @@
 package br.ufsc.Trabalho1.view;
 
-import br.ufsc.Trabalho1.control.LoginScreenCtrl;
+import br.ufsc.Trabalho1.control.ScreenCtrl;
 
 public class MemberScreen extends javax.swing.JFrame {
 
@@ -127,7 +127,7 @@ public class MemberScreen extends javax.swing.JFrame {
 
     private void returnMemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnMemActionPerformed
         setVisible(false);
-	LoginScreenCtrl.getInstance().menu();       
+	ScreenCtrl.getInstance().menu();       
     }//GEN-LAST:event_returnMemActionPerformed
 
     /**
