@@ -32,7 +32,10 @@ public class MainController {
 
 	public static boolean isValid(String text) throws Exception {
 		
-		if(dataHandler.exists()) 
+		boolean exists = dataHandler.exists(PersistanceCtrl.getInstance().
+				getUsernameList().getList(), text);
+		
+		if(exists) 
 			return auth.authentication();
 		else {
 			throw new Exception("No usernames match the field");

@@ -7,27 +7,28 @@ import components.persistence.*;
 
 public class PersistanceCtrl {
 	
+	private static final PersistanceCtrl instance = new PersistanceCtrl();
 	private MemoryPersistance memberList;
 	private MemoryPersistance staffList;
+	private MemoryPersistance usernameList;
+	
+	public PersistanceCtrl() {
+		this.memberList = new MemoryPersistance(new ArrayList<Member>());
+		this.staffList = new MemoryPersistance(new ArrayList<Staff>());
+		this.usernameList = new MemoryPersistance(new ArrayList<String>());
+		
+	}
+
+	public MemoryPersistance getStaffList() {
+		return staffList;
+	}
 	
 	public MemoryPersistance getMemberList() {
 		return memberList;
 	}
 	
-	public PersistanceCtrl() {
-		this.memberList = new MemoryPersistance(new ArrayList<Member>());
-		this.staffList = new MemoryPersistance(new ArrayList<>());
-		
-	}
-	
-	public void setMemberList(MemoryPersistance memberList) {
-		this.memberList = memberList;
-	}
-	public MemoryPersistance getStaffList() {
-		return staffList;
-	}
-	public void setStaffList(MemoryPersistance staffList) {
-		this.staffList = staffList;
+	public MemoryPersistance getUsernameList() {
+		return usernameList;
 	}
 	
 	public void add(Member member) {
@@ -36,6 +37,8 @@ public class PersistanceCtrl {
 	
 	public void add(Staff staff) {
 		staffList.add(staff);
+		usernameList.add(staff.getUsername());
+		
 	}
 	
 	public void remove(Member member) {
@@ -44,5 +47,10 @@ public class PersistanceCtrl {
 	
 	public void remove(Staff staff) {
 		staffList.remove(staff);
+		usernameList.remove(staff.getUsername());
+	}
+
+	public static PersistanceCtrl getInstance() {
+		return instance;
 	}
 }

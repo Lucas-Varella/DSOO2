@@ -10,7 +10,7 @@ public class MemoryPersistance<T> {
 		this.persistanceList = persistanceList;
 	}
 
-	public ArrayList<?> getPersistanceList() {
+	public ArrayList<T> getList() {
 		return persistanceList;
 	}
 
@@ -25,4 +25,5 @@ public class MemoryPersistance<T> {
 	public void remove(T t) {
 		persistanceList.remove(t);
 	}
+	
 }
