@@ -2,6 +2,7 @@ package br.ufsc.Trabalho1.view;
 
 import br.ufsc.Trabalho1.control.ScreenCtrl;
 import br.ufsc.Trabalho1.control.MainController;
+import javax.swing.JOptionPane;
 
 public class LoginScreen extends javax.swing.JFrame {
 
@@ -127,7 +128,6 @@ public class LoginScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -135,8 +135,13 @@ public class LoginScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
-    	setVisible(false);
-    	ScreenCtrl.getInstance().showMainScreen();
+    	
+    	if (ScreenCtrl.isValid(jTextField1.getText())) {
+	    	setVisible(false);
+	    	ScreenCtrl.getInstance().showMainScreen();
+    	} else {
+    		JOptionPane.showMessageDialog(null, "You are not worthy of entrance" );
+    	}
     }//GEN-LAST:event_OKActionPerformed
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed

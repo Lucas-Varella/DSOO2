@@ -26,4 +26,11 @@ public class ScreenCtrl {
 		mainScreen.setVisible(true);
 		
 	}
+
+	public static boolean isValid(String text) {
+		if(text.equals("cu"))
+			return true;
+		else
+			return false;
+	}
 }
