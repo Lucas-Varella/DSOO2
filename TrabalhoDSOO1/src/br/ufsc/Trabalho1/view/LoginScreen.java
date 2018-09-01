@@ -136,11 +136,15 @@ public class LoginScreen extends javax.swing.JFrame {
 
     private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
     	
-    	if (ScreenCtrl.isValid(jTextField1.getText())) {
-	    	setVisible(false);
-	    	ScreenCtrl.getInstance().showMainScreen();
-    	} else {
-    		JOptionPane.showMessageDialog(null, "You are not worthy of entrance" );
+    	try {
+	    	if (MainController.isValid(jTextField1.getText())) {
+		    	setVisible(false);
+		    	ScreenCtrl.getInstance().showMainScreen();
+	    	} else {
+	    		JOptionPane.showMessageDialog(null, "You are not worthy of entrance" );
+	    	}
+    	} catch(Exception e) {
+    		JOptionPane.showMessageDialog(null, "There is no username that matches the field", "Attention", 1);
     	}
     }//GEN-LAST:event_OKActionPerformed
 

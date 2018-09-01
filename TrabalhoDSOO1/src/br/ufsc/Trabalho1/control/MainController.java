@@ -1,12 +1,18 @@
 package br.ufsc.Trabalho1.control;
 
+import javax.swing.JOptionPane;
+
+import components.RegistryHandler.DataHandler;
+import components.authentication.Authenticator;
 
 public class MainController {
 	
 	private static final MainController instance = new MainController();
+	private static Authenticator auth;
+	private static DataHandler dataHandler;
 	
 	public MainController () {
-		
+		this.auth = new Authenticator();
 	}
 
 
@@ -23,5 +29,14 @@ public class MainController {
 		
 	}
 	
+
+	public static boolean isValid(String text) throws Exception {
+		
+		if(dataHandler.exists()) 
+			return auth.authentication();
+		else {
+			throw new Exception("No usernames match the field");
+		}
+	}
 	
 }
