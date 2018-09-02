@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import br.ufsc.Trabalho1.model.Member;
+import br.ufsc.Trabalho1.model.Staff;
 import components.RegistryHandler.DataHandler;
 import components.authentication.Authenticator;
 
@@ -34,13 +36,21 @@ public class MainController {
 
 	public static boolean isValid(String username, String password) throws Exception {
 		
-		ArrayList memberList = PersistanceCtrl.getInstance().getMemberList().getList();
+		boolean isValid = false;
+		ArrayList<Staff> staffList = PersistanceCtrl.getInstance().getStaffList().getList();
 		boolean exists = dataHandler.exists(PersistanceCtrl.getInstance().
 				getUsernameList().getList(), username);
 		
-		if(exists) 
-			return auth.authentication(username, password, memberList);
-		else {
+		if(exists) {
+			for (Staff s :staffList) {
+				if (s.getUsername().equals(username)) {
+					if (s.getPassword().equals(password)) {
+						isValid = true;
+					}
+				}
+			}
+		return isValid;
+		}else {
 			throw new Exception("No usernames match the field");
 		}
 	}

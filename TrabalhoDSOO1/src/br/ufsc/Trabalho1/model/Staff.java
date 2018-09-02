@@ -4,13 +4,13 @@ import java.util.Date;
 
 public class Staff extends User{
 	
-	private String position;
+	private Positions position;
 	private int salary;
 	private String username;
 	private String password;
 
-	public Staff(String cpf, String rg, String name, Date birthday, String address, 
-			String position, int salary, String username, String password) {
+	public Staff(String cpf, String rg, String name, String birthday, String address, 
+			Positions position, int salary, String username, String password) {
 		
 		super(cpf, rg, name, birthday, address);
 		this.setSalary(salary);
@@ -19,11 +19,11 @@ public class Staff extends User{
 		this.username = username;
 	}
 
-	public String getPosition() {
+	public Positions getPosition() {
 		return position;
 	}
 
-	public void setPosition(String position) {
+	public void setPosition(Positions position) {
 		this.position = position;
 	}
 

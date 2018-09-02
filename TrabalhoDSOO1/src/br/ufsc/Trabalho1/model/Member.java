@@ -8,7 +8,7 @@ public class Member extends User{
 
 	private List<String> training;
 	
-	public Member(String cpf, String rg, String name, Date birthday, String address) {
+	public Member(String cpf, String rg, String name, String birthday, String address) {
 		super(cpf, rg, name, birthday, address);
 		this.setTrain(new ArrayList());
 	}
