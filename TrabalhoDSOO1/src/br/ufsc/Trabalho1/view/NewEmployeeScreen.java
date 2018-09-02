@@ -230,7 +230,7 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
     			nameTf.getText(),
     			bdayTf.getText(),
     			addrTf.getText(),
-    			"place",
+    			"99999999",
     			MainController.getInstance().stringToPosition(positionCb.getSelectedItem().toString()),
     			salaryTf.getText(),
     			userTf.getText(),
