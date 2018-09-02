@@ -119,7 +119,8 @@ public class EmployeeScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_newEmpButtonActionPerformed
 
     private void manageEmpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmpButtonActionPerformed
-        
+        setVisible(false);
+        ScreenCtrl.getInstance().showManageEmployeeScreen();
     }//GEN-LAST:event_manageEmpButtonActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
