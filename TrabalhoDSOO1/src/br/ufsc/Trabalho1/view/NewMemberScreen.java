@@ -19,7 +19,7 @@ public class NewMemberScreen extends javax.swing.JFrame {
     public NewMemberScreen() {
         initComponents();
     }
-//aa
+//aas
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
