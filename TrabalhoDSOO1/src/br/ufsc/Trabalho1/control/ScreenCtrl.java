@@ -12,7 +12,7 @@ public class ScreenCtrl {
 	private NewEmployeeScreen newEmployeeScreen;
 	private ListMemberScreen listMemberScreen;
 	private EmployeeScreen employeeScreen;
-	private CreateMemberScreen createMemberScreen;
+	private NewMemberScreen newMemberScreen;
 	
 	public ScreenCtrl() {
 		loginScreen = new LoginScreen(this);
@@ -22,7 +22,7 @@ public class ScreenCtrl {
 		newEmployeeScreen = new NewEmployeeScreen();
 		listMemberScreen = new ListMemberScreen();
 		employeeScreen = new EmployeeScreen();
-		createMemberScreen = new CreateMemberScreen();
+		newMemberScreen = new NewMemberScreen();
 	}
 
 	public static ScreenCtrl getInstance() {
@@ -58,8 +58,9 @@ public class ScreenCtrl {
 		employeeScreen.setVisible(true);
 		
 	}
-	public void showCreateMemberScreen() {
-		createMemberScreen.setVisible(true);
+	
+	public void showNewMemberScreen() {
+		newMemberScreen.setVisible(true);
+		
 	}
-
 }

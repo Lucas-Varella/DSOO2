@@ -118,14 +118,16 @@ public class MemberScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//ll
     private void newMemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMemActionPerformed
-    	
+    	setVisible(false);
+    	ScreenCtrl.getInstance().showNewMemberScreen();
         // TODO add your handling code here:
     }//GEN-LAST:event_newMemActionPerformed
 
     private void manageMemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lsRegistryActionPerformed
-        // TODO add your handling code here:
+    	setVisible(false);
+    	ScreenCtrl.getInstance().showListMemberScreen();
     }//GEN-LAST:event_lsRegistryActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnMemActionPerformed

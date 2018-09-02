@@ -140,6 +140,7 @@ public class LoginScreen extends javax.swing.JFrame {
 	    	if (MainController.getInstance().isValid(jTextField1.getText(), jTextField2.getText())) {
 		    	setVisible(false);
 		    	ScreenCtrl.getInstance().showMainScreen();
+		    	
 	    	} else {
 	    		JOptionPane.showMessageDialog(null, "The password is incorrect" );
 	    	}

@@ -9,14 +9,14 @@ import br.ufsc.Trabalho1.control.ScreenCtrl;
 
 /**
  *
- * @author Raspbwolf
+ * @author Usuario
  */
-public class NewEmployeeScreen extends javax.swing.JFrame {
+public class NewMemberScreen extends javax.swing.JFrame {
 
     /**
-     * Creates new form NewEmployeeScreen
+     * Creates new form NewMemberScreen
      */
-    public NewEmployeeScreen() {
+    public NewMemberScreen() {
         initComponents();
     }
 
@@ -30,34 +30,40 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        nameTf = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        cpfTf = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        rgTf = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        bdayTf = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        phoneTf = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         addrTf = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        posTf = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        salaryTf = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        userTf = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        passTf = new javax.swing.JTextField();
+        phoneTf = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        bdayTf = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        rgTf = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        cpfTf = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        nameTf = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         confirmButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "New Employee", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "New Member", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
 
-        jLabel1.setText("Name :");
+        jLabel6.setText("Address :");
+
+        phoneTf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phoneTfActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Phone :");
+
+        jLabel4.setText("Birth Date :");
+
+        jLabel3.setText("RG :");
+
+        jLabel2.setText("CPF :");
 
         nameTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,27 +71,14 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("CPF :");
-
-        jLabel3.setText("RG :");
-
-        jLabel4.setText("Birth Date :");
-
-        jLabel5.setText("Phone :");
-
-        jLabel6.setText("Address :");
-
-        jLabel7.setText("Position :");
-
-        jLabel8.setText("Salary :");
-
-        jLabel9.setText("Username :");
-
-        jLabel10.setText("Password :");
-
-        passTf.setToolTipText("");
+        jLabel1.setText("Name :");
 
         confirmButton.setText("Confirm");
+        confirmButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setText("Cancel");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -101,38 +94,32 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1))
-                        .addGap(25, 25, 25)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameTf)
-                            .addComponent(rgTf)
-                            .addComponent(cpfTf)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(9, 9, 9))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(confirmButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(337, 337, 337)
-                                .addComponent(cancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(passTf)
-                            .addComponent(userTf)
-                            .addComponent(salaryTf)
-                            .addComponent(posTf)
-                            .addComponent(addrTf)
-                            .addComponent(phoneTf)
-                            .addComponent(bdayTf))))
+                            .addComponent(nameTf)
+                            .addComponent(cpfTf)
+                            .addComponent(rgTf)
+                            .addComponent(bdayTf)
+                            .addComponent(phoneTf, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(addrTf, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(confirmButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(337, 337, 337)
+                        .addComponent(cancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -162,23 +149,7 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(addrTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(posTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(salaryTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(userTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(passTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(confirmButton)
                     .addComponent(cancelButton))
@@ -205,14 +176,22 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-    	setVisible(false);
-        ScreenCtrl.getInstance().showEmployeeScreen();
-    }//GEN-LAST:event_cancelButtonActionPerformed
-
     private void nameTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameTfActionPerformed
+
+    private void phoneTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneTfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_phoneTfActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        setVisible(false);
+        ScreenCtrl.getInstance().showMemberScreen();
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_confirmButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,22 +204,14 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
     private javax.swing.JButton confirmButton;
     private javax.swing.JTextField cpfTf;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nameTf;
-    private javax.swing.JTextField passTf;
     private javax.swing.JTextField phoneTf;
-    private javax.swing.JTextField posTf;
     private javax.swing.JTextField rgTf;
-    private javax.swing.JTextField salaryTf;
-    private javax.swing.JTextField userTf;
     // End of variables declaration//GEN-END:variables
 }
