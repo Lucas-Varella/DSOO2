@@ -3,8 +3,10 @@ package br.ufsc.Trabalho1.control;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+import javax.swing.text.Position;
 
 import br.ufsc.Trabalho1.model.Member;
+import br.ufsc.Trabalho1.model.Positions;
 import br.ufsc.Trabalho1.model.Staff;
 import components.RegistryHandler.DataHandler;
 import components.authentication.Authenticator;
@@ -68,6 +70,14 @@ public class MainController {
 
 	public void setLogged(Staff logged) {
 		this.loggedStaff = logged;
+	}
+
+
+	public boolean userIsAdmin() {
+		if (loggedStaff.getPosition().equals(Positions.ADMIN))
+			return true;
+		else
+			return false;
 	}
 	
 }

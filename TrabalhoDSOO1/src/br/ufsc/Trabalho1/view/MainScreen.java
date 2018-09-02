@@ -1,5 +1,8 @@
 package br.ufsc.Trabalho1.view;
 
+import javax.swing.JOptionPane;
+
+import br.ufsc.Trabalho1.control.MainController;
 import br.ufsc.Trabalho1.control.ScreenCtrl;
 
 /*
@@ -143,8 +146,13 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_memScreenButtonActionPerformed
 
     private void empScreenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empScreenButtonActionPerformed
-    	setVisible(false);
-        ScreenCtrl.getInstance().showEmployeeScreen();
+	    
+    	if (MainController.getInstance().userIsAdmin()) {	
+	    	setVisible(false);
+	        ScreenCtrl.getInstance().showEmployeeScreen();
+    	} else {
+    		JOptionPane.showMessageDialog(null, "You don't have permission for this", "Attention", 1);
+    	}
     }//GEN-LAST:event_empScreenButtonActionPerformed
 
     private void changeUsrButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeUsrButtonActionPerformed
