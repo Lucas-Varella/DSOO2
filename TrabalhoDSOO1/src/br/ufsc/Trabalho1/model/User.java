@@ -9,13 +9,15 @@ public class User {
 	private String name;
 	private String birthday;
 	private String address;
+	private String phone;
 	
-	public User(String cpf, String rg, String name, String birthday, String address) {
+	public User(String cpf, String rg, String name, String birthday, String address, String phone) {
 		this.setAddress(address);
 		this.setBirthday(birthday);
 		this.setCpf(cpf);
 		this.setName(name);
 		this.setRg(rg);
+		this.setPhone(phone);
 	}
 
 	public String getCpf() {
@@ -56,5 +58,13 @@ public class User {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 }

@@ -5,14 +5,14 @@ import java.util.Date;
 public class Staff extends User{
 	
 	private Positions position;
-	private int salary;
+	private String salary;
 	private String username;
 	private String password;
 
-	public Staff(String cpf, String rg, String name, String birthday, String address, 
-			Positions position, int salary, String username, String password) {
+	public Staff(String cpf, String rg, String name, String birthday, String address, String phone,
+			Positions position, String salary, String username, String password) {
 		
-		super(cpf, rg, name, birthday, address);
+		super(cpf, rg, name, birthday, address, phone);
 		this.setSalary(salary);
 		this.setPosition(position);
 		this.password = password;
@@ -27,11 +27,11 @@ public class Staff extends User{
 		this.position = position;
 	}
 
-	public int getSalary() {
+	public String getSalary() {
 		return salary;
 	}
 
-	public void setSalary(int salary) {
+	public void setSalary(String salary) {
 		this.salary = salary;
 	}
 

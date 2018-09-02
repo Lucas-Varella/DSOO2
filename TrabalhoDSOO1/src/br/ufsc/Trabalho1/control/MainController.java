@@ -78,5 +78,16 @@ public class MainController {
 		else
 			return false;
 	}
+
+
+	public Positions stringToPosition(String selectedItem) {
+		
+		if (selectedItem.equals("ADMIN")) 
+			return Positions.ADMIN;
+		else if (selectedItem.equals("INSTRUCTOR"))
+			return Positions.INSTRUCTOR;
+		else
+			return Positions.RECEPCIONIST;
+	}
 	
 }

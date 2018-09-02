@@ -5,7 +5,13 @@
  */
 package br.ufsc.Trabalho1.view;
 
+import javax.swing.JOptionPane;
+
+import br.ufsc.Trabalho1.control.MainController;
+import br.ufsc.Trabalho1.control.PersistanceCtrl;
 import br.ufsc.Trabalho1.control.ScreenCtrl;
+import br.ufsc.Trabalho1.model.Positions;
+import br.ufsc.Trabalho1.model.Staff;
 
 /**
  *
@@ -218,7 +224,21 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+    	PersistanceCtrl.getInstance().add(new Staff(
+    			cpfTf.getText(),
+    			rgTf.getText(),
+    			nameTf.getText(),
+    			bdayTf.getText(),
+    			addrTf.getText(),
+    			"place",
+    			MainController.getInstance().stringToPosition(positionCb.getSelectedItem().toString()),
+    			salaryTf.getText(),
+    			userTf.getText(),
+    			passTf.getText()));
     	
+    	setVisible(false);
+    	JOptionPane.showMessageDialog(null, "Member Succesfully registered", "Success", 1);
+        ScreenCtrl.getInstance().showEmployeeScreen();
     }
     
     private void nameTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTfActionPerformed

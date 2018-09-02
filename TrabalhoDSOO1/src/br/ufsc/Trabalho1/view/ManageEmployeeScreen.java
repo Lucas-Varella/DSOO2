@@ -120,7 +120,7 @@ public class ManageEmployeeScreen extends javax.swing.JFrame {
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton deleteEmployeeButton;
-    private javax.swing.JList<String> employeeList;
+    private javax.swing.JList employeeList;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton returnButton;
