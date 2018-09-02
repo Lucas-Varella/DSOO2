@@ -118,7 +118,7 @@ public class MemberScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//ll
     private void newMemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMemActionPerformed
     	setVisible(false);
     	ScreenCtrl.getInstance().showNewMemberScreen();
