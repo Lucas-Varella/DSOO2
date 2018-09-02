@@ -14,8 +14,8 @@ import components.authentication.Authenticator;
 public class MainController {
 	
 	private static final MainController instance = new MainController();
-	private static Authenticator auth;
-	private static DataHandler dataHandler;
+	private Authenticator auth;
+	private DataHandler dataHandler;
 	private Staff loggedStaff;
 	
 	public MainController () {
@@ -41,7 +41,6 @@ public class MainController {
 
 	public boolean isValid(String username, String password) throws Exception {
 		
-		Staff logged = null;
 		boolean isValid = false;
 		ArrayList<Staff> staffList = PersistanceCtrl.getInstance().getStaffList().getList();
 		boolean exists = dataHandler.exists(PersistanceCtrl.getInstance().
