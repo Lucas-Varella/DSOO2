@@ -12,7 +12,9 @@ public class Member extends User{
 		super(cpf, rg, name, birthday, address, phone);
 		this.setTrain(new ArrayList());
 	}
-
+	public String toString() {
+		return getName() + " / " + getCpf();
+	}
 	public List<String> getTrain() {
 		return training;
 	}

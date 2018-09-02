@@ -18,7 +18,9 @@ public class Staff extends User{
 		this.password = password;
 		this.username = username;
 	}
-
+	public String toString() {
+		return getName() + " / " + getCpf();
+	}
 	public Positions getPosition() {
 		return position;
 	}

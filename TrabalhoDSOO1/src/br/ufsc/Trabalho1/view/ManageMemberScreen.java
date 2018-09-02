@@ -1,8 +1,11 @@
 package br.ufsc.Trabalho1.view;
 
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
+import br.ufsc.Trabalho1.control.PersistanceCtrl;
 import br.ufsc.Trabalho1.control.ScreenCtrl;
+import br.ufsc.Trabalho1.model.Member;
 
 public class ManageMemberScreen extends javax.swing.JFrame {
 
@@ -88,11 +91,16 @@ public class ManageMemberScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Member List", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
-
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", " " };
+        
+        ArrayList<Member> members = PersistanceCtrl.getInstance().getMemberList();
+    	Member[] strings = new Member[members.size()];
+    	for(int i = 0; i < members.size(); i++) {
+    		strings[i] = members.get(i);
+    	}
+        jList1.setModel(new javax.swing.AbstractListModel<Member>() {
+            
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Member getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jList1);
 
@@ -207,7 +215,7 @@ public class ManageMemberScreen extends javax.swing.JFrame {
     private javax.swing.JDialog jDialog1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<Member> jList1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JPanel jPanel1;
@@ -219,4 +227,18 @@ public class ManageMemberScreen extends javax.swing.JFrame {
     private javax.swing.JButton manageTrainingButton;
     private javax.swing.JButton returnButton;
     // End of variables declaration//GEN-END:variables
+	public void updateData() {
+		ArrayList<Member> members = PersistanceCtrl.getInstance().getMemberList();
+    	Member[] strings = new Member[members.size()];
+    	for(int i = 0; i < members.size(); i++) {
+    		strings[i] = members.get(i);
+    	}
+        jList1.setModel(new javax.swing.AbstractListModel<Member>() {
+            
+            public int getSize() { return strings.length; }
+            public Member getElementAt(int i) { return strings[i]; }
+        });
+        this.repaint();
+		
+	}
 }

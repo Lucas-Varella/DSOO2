@@ -187,7 +187,7 @@ public class NewMemberScreen extends javax.swing.JFrame {
 	        int rg = Integer.parseInt(rgTf.getText());
 	        int cpf = Integer.parseInt(cpfTf.getText());
 	        
-            if(!(name.equals("") || address.equals("") ||  bday.equals(""))) {
+            if(!(name.equals("") || ("" + phone).equals("") || ("" + rg).equals("") || ("" + cpf).equals("") || address.equals("") ||  bday.equals(""))) {
         		PersistanceCtrl.getInstance().add(new Member(""+cpf, ""+rg, name, bday, address, ""+phone));
 		        JOptionPane.showMessageDialog(null, "Member " + name + "created.", "Attention", 1);
         	}else {

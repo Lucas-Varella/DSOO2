@@ -53,6 +53,7 @@ public class ScreenCtrl {
 	}
 	
 	public void showManageMemberScreen() {
+		manageMemberScreen.updateData();
 		manageMemberScreen.setVisible(true);
 	}
 
