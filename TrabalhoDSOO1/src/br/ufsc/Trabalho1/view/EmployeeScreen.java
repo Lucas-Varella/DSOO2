@@ -6,6 +6,7 @@
 package br.ufsc.Trabalho1.view;
 
 import br.ufsc.Trabalho1.control.MainController;
+import br.ufsc.Trabalho1.control.ScreenCtrl;
 
 /**
  *
@@ -122,7 +123,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         setVisible(false);
-        MainController.getInstance().showLoginScreen();
+        ScreenCtrl.getInstance().showMainScreen();
     }//GEN-LAST:event_returnButtonActionPerformed
 
     /**

@@ -41,10 +41,25 @@ public class ScreenCtrl {
 	public void showMemberScreen() {
 		memberScreen.setVisible(true);
 	}
+	
+	public void showTrainingScreen() {
+		trainingScreen.setVisible(true);;
+	}
+	
+	public void showNewEmployeeScreen() {
+		newEmployeeScreen.setVisible(true);
+	}
+	
+	public void showListMemberScreen() {
+		listMemberScreen.setVisible(true);
+	}
 
 	public void showEmployeeScreen() {
 		employeeScreen.setVisible(true);
 		
+	}
+	public void showCreateMemberScreen() {
+		createMemberScreen.setVisible(true);
 	}
 
 }

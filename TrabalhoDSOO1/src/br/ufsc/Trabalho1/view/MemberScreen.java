@@ -23,10 +23,10 @@ public class MemberScreen extends javax.swing.JFrame {
         jDialog1 = new javax.swing.JDialog();
         jFileChooser1 = new javax.swing.JFileChooser();
         jPanel1 = new javax.swing.JPanel();
-        newMem = new javax.swing.JButton();
-        lsRegistry = new javax.swing.JButton();
-        returnMem = new javax.swing.JButton();
-        exitMem = new javax.swing.JButton();
+        newMemButton = new javax.swing.JButton();
+        manageMemButton = new javax.swing.JButton();
+        returnButton = new javax.swing.JButton();
+        exitButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -42,33 +42,33 @@ public class MemberScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Members", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Member Sector", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
         jPanel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         jPanel1.setName("Loucura"); // NOI18N
 
-        newMem.setText("New Member");
-        newMem.setAutoscrolls(true);
-        newMem.addActionListener(new java.awt.event.ActionListener() {
+        newMemButton.setText("New Member");
+        newMemButton.setAutoscrolls(true);
+        newMemButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newMemActionPerformed(evt);
+                newMemButtonActionPerformed(evt);
             }
         });
 
-        lsRegistry.setText("List Registry");
-        lsRegistry.addActionListener(new java.awt.event.ActionListener() {
+        manageMemButton.setText("Manage Members");
+        manageMemButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lsRegistryActionPerformed(evt);
+                manageMemButtonActionPerformed(evt);
             }
         });
 
-        returnMem.setText("Return");
-        returnMem.addActionListener(new java.awt.event.ActionListener() {
+        returnButton.setText("Return");
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                returnMemActionPerformed(evt);
+                returnButtonActionPerformed(evt);
             }
         });
 
-        exitMem.setText("Exit");
+        exitButton.setText("Exit");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -77,24 +77,26 @@ public class MemberScreen extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(134, 134, 134)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(newMem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lsRegistry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(returnMem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(exitMem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(newMemButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(manageMemButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(139, 139, 139))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(returnButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(newMem)
+                .addGap(16, 16, 16)
+                .addComponent(returnButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(newMemButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(lsRegistry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(returnMem)
-                .addGap(18, 18, 18)
-                .addComponent(exitMem)
-                .addContainerGap())
+                .addComponent(manageMemButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(exitButton))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -109,70 +111,39 @@ public class MemberScreen extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void newMemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMemActionPerformed
+    private void newMemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMemActionPerformed
+    	
         // TODO add your handling code here:
     }//GEN-LAST:event_newMemActionPerformed
 
-    private void lsRegistryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lsRegistryActionPerformed
+    private void manageMemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lsRegistryActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lsRegistryActionPerformed
 
-    private void returnMemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnMemActionPerformed
+    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnMemActionPerformed
         setVisible(false);
-	ScreenCtrl.getInstance().showLoginScreen();       
+        ScreenCtrl.getInstance().showMainScreen();      
     }//GEN-LAST:event_returnMemActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MemberScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MemberScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MemberScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MemberScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MemberScreen().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton exitMem;
+    private javax.swing.JButton exitButton;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton lsRegistry;
-    private javax.swing.JButton newMem;
-    private javax.swing.JButton returnMem;
+    private javax.swing.JButton manageMemButton;
+    private javax.swing.JButton newMemButton;
+    private javax.swing.JButton returnButton;
     // End of variables declaration//GEN-END:variables
 }
