@@ -114,11 +114,12 @@ public class EmployeeScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void newEmpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newEmpButtonActionPerformed
-        // TODO add your handling code here:
+    	setVisible(false);
+        ScreenCtrl.getInstance().showNewEmployeeScreen();
     }//GEN-LAST:event_newEmpButtonActionPerformed
 
     private void manageEmpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmpButtonActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_manageEmpButtonActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
