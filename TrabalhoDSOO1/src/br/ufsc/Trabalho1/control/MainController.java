@@ -49,8 +49,8 @@ public class MainController {
 		
 		if(exists) {
 			for (Staff s :staffList) {
-				if (s.getUsername().equals(username)) {
-					if (s.getPassword().equals(password)) {
+				if (auth.authentication(s.getUsername(),username)) {
+					if (auth.authentication(s.getPassword(), password)) {
 						isValid = true;
 						this.loggedStaff = s;
 					}
