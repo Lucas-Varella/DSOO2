@@ -26,12 +26,12 @@ public class PersistanceCtrl {
 		return staffList;
 	}
 	
-	public MemoryPersistance getMemberList() {
-		return memberList;
+	public ArrayList getMemberList() {
+		return memberList.getList();
 	}
 	
-	public MemoryPersistance getUsernameList() {
-		return usernameList;
+	public  ArrayList getUsernameList() {
+		return usernameList.getList();
 	}
 	
 	public void add(Member member) {
