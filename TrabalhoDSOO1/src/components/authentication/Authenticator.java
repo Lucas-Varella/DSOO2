@@ -1,16 +1,16 @@
 package components.authentication;
 
-import java.util.ArrayList;
-
 public class Authenticator {
 	
 	public Authenticator() {
 	}
 	
-	public <T> boolean authentication(Object obj1, String obj2, ArrayList<T> cList) {
+	public <T> boolean authentication(Object obj1, String obj2) {
 		
-		if
-		return false;
+		if (obj1.equals(obj2))
+			return true;
+		else
+			return false;
 	}
 	
 }

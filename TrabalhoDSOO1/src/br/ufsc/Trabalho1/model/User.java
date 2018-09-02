@@ -7,10 +7,10 @@ public class User {
 	private String cpf;
 	private String rg;
 	private String name;
-	private Date birthday;
+	private String birthday;
 	private String address;
 	
-	public User(String cpf, String rg, String name, Date birthday, String address) {
+	public User(String cpf, String rg, String name, String birthday, String address) {
 		this.setAddress(address);
 		this.setBirthday(birthday);
 		this.setCpf(cpf);
@@ -42,11 +42,11 @@ public class User {
 		this.name = name;
 	}
 
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 
