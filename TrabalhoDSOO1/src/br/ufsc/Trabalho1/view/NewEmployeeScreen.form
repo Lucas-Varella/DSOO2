@@ -81,7 +81,7 @@
                               <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="confirmButton" max="32767" attributes="0"/>
@@ -91,10 +91,10 @@
                               <Component id="passTf" max="32767" attributes="0"/>
                               <Component id="userTf" max="32767" attributes="0"/>
                               <Component id="salaryTf" max="32767" attributes="0"/>
-                              <Component id="posTf" max="32767" attributes="0"/>
                               <Component id="addrTf" max="32767" attributes="0"/>
                               <Component id="phoneTf" max="32767" attributes="0"/>
                               <Component id="bdayTf" max="32767" attributes="0"/>
+                              <Component id="positionCb" alignment="1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -138,7 +138,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="posTf" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="positionCb" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -216,8 +216,6 @@
             <Property name="text" type="java.lang.String" value="Position :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="posTf">
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
             <Property name="text" type="java.lang.String" value="Salary :"/>
@@ -254,6 +252,21 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelButtonActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="positionCb">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

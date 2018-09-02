@@ -43,7 +43,6 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         addrTf = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        posTf = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         salaryTf = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -52,6 +51,7 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
         passTf = new javax.swing.JTextField();
         confirmButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
+        positionCb = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,6 +94,8 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
             }
         });
 
+        positionCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -129,10 +131,10 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
                             .addComponent(passTf)
                             .addComponent(userTf)
                             .addComponent(salaryTf)
-                            .addComponent(posTf)
                             .addComponent(addrTf)
                             .addComponent(phoneTf)
-                            .addComponent(bdayTf))))
+                            .addComponent(bdayTf)
+                            .addComponent(positionCb, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -165,7 +167,7 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(posTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(positionCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -238,7 +240,7 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
     private javax.swing.JTextField nameTf;
     private javax.swing.JTextField passTf;
     private javax.swing.JTextField phoneTf;
-    private javax.swing.JTextField posTf;
+    private javax.swing.JComboBox<String> positionCb;
     private javax.swing.JTextField rgTf;
     private javax.swing.JTextField salaryTf;
     private javax.swing.JTextField userTf;
