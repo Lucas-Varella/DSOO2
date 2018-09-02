@@ -11,6 +11,7 @@ public class ScreenCtrl {
 	
 	public ScreenCtrl() {
 		loginScreen = new LoginScreen(this);
+		//pra que atribuir o negocio? tu nem usa
 		mainScreen = new MainScreen();
 	}
 
