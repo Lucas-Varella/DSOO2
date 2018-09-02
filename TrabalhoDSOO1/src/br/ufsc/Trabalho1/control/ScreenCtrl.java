@@ -11,7 +11,7 @@ public class ScreenCtrl {
 	
 	public ScreenCtrl() {
 		loginScreen = new LoginScreen(this);
-		mainScreen = new MainScreen(this);
+		mainScreen = new MainScreen();
 	}
 
 	public static ScreenCtrl getInstance() {
