@@ -18,6 +18,7 @@ public class PersistanceCtrl {
 		this.staffList = new MemoryPersistance(new ArrayList<Staff>());
 		this.usernameList = new MemoryPersistance(new ArrayList<String>());
 		add(new Staff("23123", "123", "ddddd", "2112", "rua ", Positions.ADMIN, 12233, "admin", "admin"));
+		add(new Staff("24214", "124", "aaaaa", "2113", "rei", Positions.INSTRUCTOR, 13333, "employee", "employee"));
 		
 	}
 
