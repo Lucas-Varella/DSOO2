@@ -17,6 +17,7 @@ public class MainController {
 	
 	public MainController () {
 		this.auth = new Authenticator();
+		this.dataHandler = new DataHandler();
 	}
 
 
