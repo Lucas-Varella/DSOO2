@@ -147,10 +147,10 @@
                   <Component id="jScrollPane1" pref="189" max="32767" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="newTrainingButton" alignment="1" max="32767" attributes="0"/>
                       <Component id="deleteMember" alignment="1" max="32767" attributes="0"/>
                       <Component id="editMemButton" alignment="1" max="32767" attributes="0"/>
                       <Component id="returnButton" alignment="1" max="32767" attributes="0"/>
+                      <Component id="manageTrainingButton" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               </Group>
@@ -163,9 +163,9 @@
                       <Component id="jScrollPane1" pref="229" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="editMemButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="newTrainingButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="manageTrainingButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           <Component id="deleteMember" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="returnButton" min="-2" max="-2" attributes="0"/>
@@ -236,14 +236,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editMemButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="newTrainingButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Manage Training"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newTrainingButtonActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JButton" name="deleteMember">
           <Properties>
             <Property name="text" type="java.lang.String" value="Delete Member"/>
@@ -258,6 +250,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="returnButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="manageTrainingButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Manage Member"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manageTrainingButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
