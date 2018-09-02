@@ -1,11 +1,10 @@
+package br.ufsc.Trabalho1.view;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.ufsc.Trabalho1.view;
-
-import br.ufsc.Trabalho1.control.ScreenCtrl;
 
 /**
  *
@@ -15,7 +14,6 @@ public class MainScreen extends javax.swing.JFrame {
 
     /**
      * Creates new form MainScreen
-     * @param screenCtrl 
      */
     public MainScreen() {
         initComponents();
@@ -43,12 +41,32 @@ public class MainScreen extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Main Menu", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
 
         memScreenButton.setText("Member Sector");
+        memScreenButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                memScreenButtonActionPerformed(evt);
+            }
+        });
 
         empScreenButton.setText("Employee Sector");
+        empScreenButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                empScreenButtonActionPerformed(evt);
+            }
+        });
 
         changeUsrButton.setText("Change User");
+        changeUsrButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeUsrButtonActionPerformed(evt);
+            }
+        });
 
         logoffButton.setText("Log out & Exit");
+        logoffButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoffButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -117,10 +135,26 @@ public class MainScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void memScreenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memScreenButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_memScreenButtonActionPerformed
+
+    private void empScreenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empScreenButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empScreenButtonActionPerformed
+
+    private void changeUsrButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeUsrButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_changeUsrButtonActionPerformed
+
+    private void logoffButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoffButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logoffButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
-//as
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton changeUsrButton;
     private javax.swing.JButton empScreenButton;

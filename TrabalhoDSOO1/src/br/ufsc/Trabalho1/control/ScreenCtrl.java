@@ -1,13 +1,18 @@
 package br.ufsc.Trabalho1.control;
 
-import br.ufsc.Trabalho1.view.LoginScreen;
-import br.ufsc.Trabalho1.view.MainScreen;
+import br.ufsc.Trabalho1.view.*;
 
 public class ScreenCtrl {
 
 	private static final ScreenCtrl instance = new ScreenCtrl();
 	private LoginScreen loginScreen;
 	private MainScreen mainScreen;
+	private MemberScreen memberScreen;
+	private TrainingScreen trainingScreen;
+	private NewEmployeeScreen newEmployeeScreen;
+	private ListMemberScreen listMemberScreen;
+	private EmployeeScreen employeeScreen;
+	private CreateMemberScreen createMemberScreen;
 	
 	public ScreenCtrl() {
 		loginScreen = new LoginScreen(this);
@@ -25,6 +30,11 @@ public class ScreenCtrl {
 
 	public void showMainScreen() {
 		mainScreen.setVisible(true);
+		
+	}
+
+	public void showMemberScreen() {
+		// TODO Auto-generated method stub
 		
 	}
 
