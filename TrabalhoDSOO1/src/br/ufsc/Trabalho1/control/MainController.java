@@ -26,7 +26,7 @@ public class MainController {
 	}
 	
 	public void showLoginScreen() {
-		ScreenCtrl.getInstance().menu();
+		ScreenCtrl.getInstance().showLoginScreen();
 	}
 
 

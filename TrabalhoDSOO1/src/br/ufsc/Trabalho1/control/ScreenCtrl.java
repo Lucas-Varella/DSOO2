@@ -16,15 +16,20 @@ public class ScreenCtrl {
 	
 	public ScreenCtrl() {
 		loginScreen = new LoginScreen(this);
-		//pra que atribuir o negocio? tu nem usa
 		mainScreen = new MainScreen();
+		memberScreen = new MemberScreen();
+		trainingScreen = new TrainingScreen();
+		newEmployeeScreen = new NewEmployeeScreen();
+		listMemberScreen = new ListMemberScreen();
+		employeeScreen = new EmployeeScreen();
+		createMemberScreen = new CreateMemberScreen();
 	}
 
 	public static ScreenCtrl getInstance() {
 		return instance;
 	}
 	
-	public void menu() {
+	public void showLoginScreen() {
 		loginScreen.setVisible(true); 
 	}
 
@@ -34,7 +39,11 @@ public class ScreenCtrl {
 	}
 
 	public void showMemberScreen() {
-		// TODO Auto-generated method stub
+		memberScreen.setVisible(true);
+	}
+
+	public void showEmployeeScreen() {
+		employeeScreen.setVisible(true);
 		
 	}
 

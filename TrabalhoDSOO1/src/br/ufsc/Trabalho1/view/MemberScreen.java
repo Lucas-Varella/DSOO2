@@ -127,7 +127,7 @@ public class MemberScreen extends javax.swing.JFrame {
 
     private void returnMemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnMemActionPerformed
         setVisible(false);
-	ScreenCtrl.getInstance().menu();       
+	ScreenCtrl.getInstance().showLoginScreen();       
     }//GEN-LAST:event_returnMemActionPerformed
 
     /**

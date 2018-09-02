@@ -1,5 +1,7 @@
 package br.ufsc.Trabalho1.view;
 
+import br.ufsc.Trabalho1.control.ScreenCtrl;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -136,18 +138,23 @@ public class MainScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void memScreenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memScreenButtonActionPerformed
-        // TODO add your handling code here:
+    	setVisible(false);
+        ScreenCtrl.getInstance().showMemberScreen();
     }//GEN-LAST:event_memScreenButtonActionPerformed
 
     private void empScreenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empScreenButtonActionPerformed
-        // TODO add your handling code here:
+    	setVisible(false);
+        ScreenCtrl.getInstance().showEmployeeScreen();
     }//GEN-LAST:event_empScreenButtonActionPerformed
 
     private void changeUsrButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeUsrButtonActionPerformed
+    	setVisible(false);
+    	ScreenCtrl.getInstance().showLoginScreen();
         // TODO add your handling code here:
     }//GEN-LAST:event_changeUsrButtonActionPerformed
 
     private void logoffButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoffButtonActionPerformed
+    	
         // TODO add your handling code here:
     }//GEN-LAST:event_logoffButtonActionPerformed
 
