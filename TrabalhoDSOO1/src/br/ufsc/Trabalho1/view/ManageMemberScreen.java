@@ -1,5 +1,7 @@
 package br.ufsc.Trabalho1.view;
 
+import java.awt.event.ActionEvent;
+
 import br.ufsc.Trabalho1.control.ScreenCtrl;
 
 public class ManageMemberScreen extends javax.swing.JFrame {
@@ -173,7 +175,12 @@ public class ManageMemberScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void manMemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manMemButtonActionPerformed
+    protected void newTrainingButtonActionPerformed(ActionEvent evt) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void manMemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manMemButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_manMemButtonActionPerformed
 
@@ -185,7 +192,11 @@ public class ManageMemberScreen extends javax.swing.JFrame {
     private void deleteMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMemberActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteMemberActionPerformed
-
+    private void editMemButtonActionPerformed(ActionEvent evt) {
+		// TODO Auto-generated method stub
+		
+	}
+//s
     /**
      * @param args the command line arguments
      */
