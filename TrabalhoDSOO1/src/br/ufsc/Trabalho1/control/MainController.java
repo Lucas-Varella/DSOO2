@@ -14,10 +14,12 @@ public class MainController {
 	private static final MainController instance = new MainController();
 	private static Authenticator auth;
 	private static DataHandler dataHandler;
+	private Staff loggedStaff;
 	
 	public MainController () {
 		this.auth = new Authenticator();
 		this.dataHandler = new DataHandler();
+		loggedStaff = null;
 	}
 
 
@@ -35,8 +37,9 @@ public class MainController {
 	}
 	
 
-	public static boolean isValid(String username, String password) throws Exception {
+	public boolean isValid(String username, String password) throws Exception {
 		
+		Staff logged = null;
 		boolean isValid = false;
 		ArrayList<Staff> staffList = PersistanceCtrl.getInstance().getStaffList().getList();
 		boolean exists = dataHandler.exists(PersistanceCtrl.getInstance().
@@ -47,6 +50,7 @@ public class MainController {
 				if (s.getUsername().equals(username)) {
 					if (s.getPassword().equals(password)) {
 						isValid = true;
+						this.loggedStaff = s;
 					}
 				}
 			}
@@ -54,6 +58,16 @@ public class MainController {
 		}else {
 			throw new Exception("No usernames match the field");
 		}
+	}
+
+
+	public Staff getLogged() {
+		return loggedStaff;
+	}
+
+
+	public void setLogged(Staff logged) {
+		this.loggedStaff = logged;
 	}
 	
 }

@@ -137,12 +137,12 @@ public class LoginScreen extends javax.swing.JFrame {
     private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
     	
     	try {
-	    	if (MainController.isValid(jTextField1.getText(), jTextField2.getText())) {
+	    	if (MainController.getInstance().isValid(jTextField1.getText(), jTextField2.getText())) {
 		    	setVisible(false);
 		    	ScreenCtrl.getInstance().showMainScreen();
 		    	
 	    	} else {
-	    		JOptionPane.showMessageDialog(null, "You are not worthy of entrance" );
+	    		JOptionPane.showMessageDialog(null, "The password is incorrect" );
 	    	}
     	} catch(Exception e) {
     		JOptionPane.showMessageDialog(null, "There is no username that matches the field", "Attention", 1);
