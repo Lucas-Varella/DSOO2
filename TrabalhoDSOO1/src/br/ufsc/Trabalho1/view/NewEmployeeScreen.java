@@ -86,7 +86,12 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
         passTf.setToolTipText("");
 
         confirmButton.setText("Confirm");
-
+        confirmButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmButtonActionPerformed(evt);
+            }
+        });
+        
         cancelButton.setText("Cancel");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,7 +99,7 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
             }
         });
 
-        positionCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        positionCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADMIN", "INSTRUCTOR", "RECEPCIONIST"}));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -212,6 +217,10 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
         ScreenCtrl.getInstance().showEmployeeScreen();
     }//GEN-LAST:event_cancelButtonActionPerformed
 
+    private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+    	
+    }
+    
     private void nameTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameTfActionPerformed
