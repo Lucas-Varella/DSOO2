@@ -35,9 +35,9 @@ public class ManageMemberScreen extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         editMemButton = new javax.swing.JButton();
-        newTrainingButton = new javax.swing.JButton();
         deleteMember = new javax.swing.JButton();
         returnButton = new javax.swing.JButton();
+        manageTrainingButton = new javax.swing.JButton();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -103,13 +103,6 @@ public class ManageMemberScreen extends javax.swing.JFrame {
             }
         });
 
-        newTrainingButton.setText("Manage Training");
-        newTrainingButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newTrainingButtonActionPerformed(evt);
-            }
-        });
-
         deleteMember.setText("Delete Member");
         deleteMember.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,6 +117,13 @@ public class ManageMemberScreen extends javax.swing.JFrame {
             }
         });
 
+        manageTrainingButton.setText("Manage Member");
+        manageTrainingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageTrainingButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -133,10 +133,10 @@ public class ManageMemberScreen extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(newTrainingButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(deleteMember, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(editMemButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(returnButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(returnButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(manageTrainingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(17, 17, 17))
         );
         jPanel1Layout.setVerticalGroup(
@@ -146,9 +146,9 @@ public class ManageMemberScreen extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(editMemButton)
-                        .addGap(37, 37, 37)
-                        .addComponent(newTrainingButton)
-                        .addGap(38, 38, 38)
+                        .addGap(34, 34, 34)
+                        .addComponent(manageTrainingButton)
+                        .addGap(41, 41, 41)
                         .addComponent(deleteMember)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(returnButton)))
@@ -175,10 +175,6 @@ public class ManageMemberScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    protected void newTrainingButtonActionPerformed(ActionEvent evt) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	private void manMemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manMemButtonActionPerformed
         // TODO add your handling code here:
@@ -192,8 +188,12 @@ public class ManageMemberScreen extends javax.swing.JFrame {
     private void deleteMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMemberActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteMemberActionPerformed
+
+    private void manageTrainingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageTrainingButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_manageTrainingButtonActionPerformed
     private void editMemButtonActionPerformed(ActionEvent evt) {
-		// TODO Auto-generated method stub
+    	ScreenCtrl.getInstance().showTrainingScreen();
 		
 	}
 //s
@@ -216,7 +216,7 @@ public class ManageMemberScreen extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JPopupMenu jPopupMenu3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton newTrainingButton;
+    private javax.swing.JButton manageTrainingButton;
     private javax.swing.JButton returnButton;
     // End of variables declaration//GEN-END:variables
 }
