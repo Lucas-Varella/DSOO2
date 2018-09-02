@@ -248,11 +248,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Delete Member"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteMemberActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="returnButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Return"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="returnButtonActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
