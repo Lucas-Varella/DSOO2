@@ -127,7 +127,7 @@ public class MemberScreen extends javax.swing.JFrame {
 
     private void manageMemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lsRegistryActionPerformed
     	setVisible(false);
-    	ScreenCtrl.getInstance().showListMemberScreen();
+    	ScreenCtrl.getInstance().showManageMemberScreen();
     }//GEN-LAST:event_lsRegistryActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnMemActionPerformed

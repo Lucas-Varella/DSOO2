@@ -10,7 +10,7 @@ public class ScreenCtrl {
 	private MemberScreen memberScreen;
 	private TrainingScreen trainingScreen;
 	private NewEmployeeScreen newEmployeeScreen;
-	private ListMemberScreen listMemberScreen;
+	private ManageMemberScreen manageMemberScreen;
 	private EmployeeScreen employeeScreen;
 	private NewMemberScreen newMemberScreen;
 	
@@ -20,7 +20,7 @@ public class ScreenCtrl {
 		memberScreen = new MemberScreen();
 		trainingScreen = new TrainingScreen();
 		newEmployeeScreen = new NewEmployeeScreen();
-		listMemberScreen = new ListMemberScreen();
+		manageMemberScreen = new ManageMemberScreen();
 		employeeScreen = new EmployeeScreen();
 		newMemberScreen = new NewMemberScreen();
 	}
@@ -50,8 +50,8 @@ public class ScreenCtrl {
 		newEmployeeScreen.setVisible(true);
 	}
 	
-	public void showListMemberScreen() {
-		listMemberScreen.setVisible(true);
+	public void showManageMemberScreen() {
+		manageMemberScreen.setVisible(true);
 	}
 
 	public void showEmployeeScreen() {
