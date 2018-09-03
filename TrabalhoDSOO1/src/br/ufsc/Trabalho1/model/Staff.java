@@ -20,6 +20,7 @@ public class Staff extends User{
 	}
 	public String toString() {
 		return getName() + " / " + getCpf();
+		
 	}
 	public Positions getPosition() {
 		return position;
