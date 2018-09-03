@@ -5,7 +5,13 @@
  */
 package br.ufsc.Trabalho1.view;
 
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+import br.ufsc.Trabalho1.control.PersistanceCtrl;
 import br.ufsc.Trabalho1.control.ScreenCtrl;
+import br.ufsc.Trabalho1.model.Staff;
 
 /**
  *
@@ -38,11 +44,16 @@ public class ManageEmployeeScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Manage Employees", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
+        
+        ArrayList<Staff> staff = PersistanceCtrl.getInstance().getStaffList();
+        Staff[] strings = new Staff[staff.size()];
+        for(int i = 0; i < staff.size(); i++) {
+        strings[i] = staff.get(i);
+        }
+        employeeList.setModel(new javax.swing.AbstractListModel<Staff>() {
 
-        employeeList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        public int getSize() { return strings.length; }
+        public Staff getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(employeeList);
 
@@ -107,20 +118,39 @@ public class ManageEmployeeScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+    	setVisible(false);
         ScreenCtrl.getInstance().showEmployeeScreen();
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void deleteEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteEmployeeButtonActionPerformed
-        // TODO add your handling code here:
+    	
+    	PersistanceCtrl.getInstance().remove(employeeList.getSelectedValue());
+    	JOptionPane.showMessageDialog(null, "Employee deleted Successfully", "Success", 1);
+        updateData();
     }//GEN-LAST:event_deleteEmployeeButtonActionPerformed
 
+    public void updateData() {
+    	ArrayList<Staff> staff = PersistanceCtrl.getInstance().getStaffList();
+    	Staff[] strings = new Staff[staff.size()];
+    	for(int i = 0; i < staff.size(); i++) {
+    	strings[i] = staff.get(i);
+    	}
+    	employeeList.setModel(new javax.swing.AbstractListModel<Staff>() {
+
+    	public int getSize() { return strings.length; }
+    	public Staff getElementAt(int i) { return strings[i]; }
+    	});
+    	this.repaint();
+
+    	}
+    
     /**
      * @param args the command line arguments
      */
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton deleteEmployeeButton;
-    private javax.swing.JList employeeList;
+    private javax.swing.JList<Staff> employeeList;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton returnButton;

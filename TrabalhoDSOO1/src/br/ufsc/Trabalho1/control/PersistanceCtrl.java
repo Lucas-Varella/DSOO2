@@ -22,8 +22,8 @@ public class PersistanceCtrl {
 		
 	}
 
-	public MemoryPersistance getStaffList() {
-		return staffList;
+	public ArrayList getStaffList() {
+		return staffList.getList();
 	}
 	
 	public ArrayList getMemberList() {

@@ -66,7 +66,8 @@ public class ScreenCtrl {
 		
 	}
 
-        public void showManageEmployeeScreen() {
-                manageEmployeeScreen.setVisible(true);
-        }
+    public void showManageEmployeeScreen() {
+    	manageEmployeeScreen.updateData();
+    	manageEmployeeScreen.setVisible(true);
+    }
 }

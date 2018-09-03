@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import br.ufsc.Trabalho1.control.MainController;
 import br.ufsc.Trabalho1.control.PersistanceCtrl;
 import br.ufsc.Trabalho1.control.ScreenCtrl;
+import br.ufsc.Trabalho1.model.Member;
 import br.ufsc.Trabalho1.model.Positions;
 import br.ufsc.Trabalho1.model.Staff;
 
@@ -224,21 +225,35 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-    	PersistanceCtrl.getInstance().add(new Staff(
-    			cpfTf.getText(),
-    			rgTf.getText(),
-    			nameTf.getText(),
-    			bdayTf.getText(),
-    			addrTf.getText(),
-    			phoneTf.getText(),
-    			MainController.getInstance().stringToPosition(positionCb.getSelectedItem().toString()),
-    			salaryTf.getText(),
-    			userTf.getText(),
-    			passTf.getText()));
+
+    	try {        
+    		String name = nameTf.getText();
+	        String address = addrTf.getText();
+	        String bday = bdayTf.getText();
+	        int phone = Integer.parseInt(phoneTf.getText());
+	        int rg = Integer.parseInt(rgTf.getText());
+	        int cpf = Integer.parseInt(cpfTf.getText());
+	        Positions p = MainController.getInstance().stringToPosition(positionCb.getSelectedItem().toString());
+	        int salary = Integer.parseInt(salaryTf.getText());
+	        String username = userTf.getText();
+	        String password = passTf.getText();
+	        
+	        
+            if(!(name.equals("") || address.equals("") ||  bday.equals(""))) {
+        		PersistanceCtrl.getInstance().add(new Staff(""+cpf, ""+rg, name, bday, address, ""+phone, p, ""+salary, username, password));
+		        JOptionPane.showMessageDialog(null, "Member " + name + " created.", "Attention", 1);
+		        setVisible(false);
+		        ScreenCtrl.getInstance().showEmployeeScreen();
+        	}else {
+				JOptionPane.showMessageDialog(null, "Please fill all fields.", "Attention", 1);
+			}   
+			
+		}catch(NullPointerException exception) {
+			JOptionPane.showMessageDialog(null, "Please fill all fields.", "Attention", 1);
+		}catch(NumberFormatException e) {
+			JOptionPane.showMessageDialog(null, "Phone, RG, and CPF must be numbers!", "Attention", 1);
+		}
     	
-    	setVisible(false);
-    	JOptionPane.showMessageDialog(null, "Member Succesfully registered", "Success", 1);
-        ScreenCtrl.getInstance().showEmployeeScreen();
     }
     
     private void nameTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTfActionPerformed

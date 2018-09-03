@@ -42,7 +42,7 @@ public class MainController {
 	public boolean isValid(String username, String password) throws Exception {
 		
 		boolean isValid = false;
-		ArrayList<Staff> staffList = PersistanceCtrl.getInstance().getStaffList().getList();
+		ArrayList<Staff> staffList = PersistanceCtrl.getInstance().getStaffList();
 		boolean exists = dataHandler.exists(PersistanceCtrl.getInstance().
 				getUsernameList(), username);
 		
