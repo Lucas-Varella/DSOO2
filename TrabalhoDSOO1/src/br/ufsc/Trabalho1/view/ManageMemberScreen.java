@@ -3,6 +3,8 @@ package br.ufsc.Trabalho1.view;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import br.ufsc.Trabalho1.control.PersistanceCtrl;
 import br.ufsc.Trabalho1.control.ScreenCtrl;
 import br.ufsc.Trabalho1.model.Member;
@@ -37,7 +39,7 @@ public class ManageMemberScreen extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
-        editMemButton = new javax.swing.JButton();
+        detailsButton = new javax.swing.JButton();
         deleteMember = new javax.swing.JButton();
         returnButton = new javax.swing.JButton();
         manageTrainingButton = new javax.swing.JButton();
@@ -104,10 +106,10 @@ public class ManageMemberScreen extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
-        editMemButton.setText("Edit Member");
-        editMemButton.addActionListener(new java.awt.event.ActionListener() {
+        detailsButton.setText("Details");
+        detailsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editMemButtonActionPerformed(evt);
+                detailsButtonActionPerformed(evt);
             }
         });
 
@@ -125,7 +127,7 @@ public class ManageMemberScreen extends javax.swing.JFrame {
             }
         });
 
-        manageTrainingButton.setText("Manage Member");
+        manageTrainingButton.setText("Manage Training");
         manageTrainingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageTrainingButtonActionPerformed(evt);
@@ -142,7 +144,7 @@ public class ManageMemberScreen extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(deleteMember, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(editMemButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(detailsButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(returnButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(manageTrainingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(17, 17, 17))
@@ -153,7 +155,7 @@ public class ManageMemberScreen extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(editMemButton)
+                        .addComponent(detailsButton)
                         .addGap(34, 34, 34)
                         .addComponent(manageTrainingButton)
                         .addGap(41, 41, 41)
@@ -184,25 +186,26 @@ public class ManageMemberScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-	private void manMemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manMemButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_manMemButtonActionPerformed
-
+	
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
     	setVisible(false);
     	ScreenCtrl.getInstance().showMemberScreen();
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void deleteMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMemberActionPerformed
-        // TODO add your handling code here:
+    	PersistanceCtrl.getInstance().remove(jList1.getSelectedValue());
+    	updateData();
     }//GEN-LAST:event_deleteMemberActionPerformed
 
     private void manageTrainingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageTrainingButtonActionPerformed
-        // TODO add your handling code here:
+    	try {
+    		ScreenCtrl.getInstance().showTrainingScreen(jList1.getSelectedValue());
+    	}catch(NullPointerException e) {
+    		JOptionPane.showMessageDialog(null, "No Employee Selected.", "Attention", 1);
+    	}
     }//GEN-LAST:event_manageTrainingButtonActionPerformed
-    private void editMemButtonActionPerformed(ActionEvent evt) {
-    	ScreenCtrl.getInstance().showTrainingScreen();
-		
+    private void detailsButtonActionPerformed(ActionEvent evt) {
+    	
 	}
 //s
     /**
@@ -211,7 +214,7 @@ public class ManageMemberScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton deleteMember;
-    private javax.swing.JButton editMemButton;
+    private javax.swing.JButton detailsButton;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;

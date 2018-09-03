@@ -107,6 +107,7 @@ public class ManageEmployeeScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+    	setVisible(false);
         ScreenCtrl.getInstance().showEmployeeScreen();
     }//GEN-LAST:event_returnButtonActionPerformed
 

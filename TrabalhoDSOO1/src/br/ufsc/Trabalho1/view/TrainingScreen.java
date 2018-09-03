@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
 package br.ufsc.Trabalho1.view;
+
+import java.util.ArrayList;
+
+import br.ufsc.Trabalho1.control.PersistanceCtrl;
+import br.ufsc.Trabalho1.model.Member;
+
 /**
  *
  * @author Raspbwolf
@@ -41,11 +47,7 @@ public class TrainingScreen extends javax.swing.JPanel {
         memNameLabel.setText("MEMBERNAME");
 
 
-        memTrainList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+       
         jScrollPane2.setViewportView(memTrainList);
 
         newTrainingButton.setText("New Exercise");
@@ -115,5 +117,20 @@ public class TrainingScreen extends javax.swing.JPanel {
     private javax.swing.JButton newTrainingButton;
     private javax.swing.JButton removeExeButton;
     private javax.swing.JButton returnButton;
+	private Member member;
     // End of variables declaration//GEN-END:variables
+	public void setMember(Member member) {
+		this.member = member;
+		
+	}
+	public void updateData() {
+		
+        memTrainList.setModel(new javax.swing.AbstractListModel<String>() {
+        	String[] strings = member.getTrain().toArray(new String[member.getTrain().size()]);
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        this.repaint();
+		
+	}
 }

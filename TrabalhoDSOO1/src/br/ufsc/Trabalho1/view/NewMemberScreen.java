@@ -189,7 +189,9 @@ public class NewMemberScreen extends javax.swing.JFrame {
 	        
             if(!(name.equals("") || ("" + phone).equals("") || ("" + rg).equals("") || ("" + cpf).equals("") || address.equals("") ||  bday.equals(""))) {
         		PersistanceCtrl.getInstance().add(new Member(""+cpf, ""+rg, name, bday, address, ""+phone));
-		        JOptionPane.showMessageDialog(null, "Member " + name + "created.", "Attention", 1);
+		        JOptionPane.showMessageDialog(null, "Member " + name + " created.", "Attention", 1);
+		        setVisible(false);
+		        ScreenCtrl.getInstance().showMemberScreen();
         	}else {
 				JOptionPane.showMessageDialog(null, "Please fill all fields.", "Attention", 1);
 			}   
