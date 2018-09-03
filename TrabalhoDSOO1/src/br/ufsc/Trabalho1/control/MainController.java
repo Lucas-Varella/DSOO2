@@ -44,7 +44,7 @@ public class MainController {
 		boolean isValid = false;
 		ArrayList<Staff> staffList = PersistanceCtrl.getInstance().getStaffList();
 		boolean exists = dataHandler.exists(PersistanceCtrl.getInstance().
-				getUsernameList(), username);
+				getUsernameList(),username);
 		
 		if(exists) {
 			for (Staff s :staffList) {

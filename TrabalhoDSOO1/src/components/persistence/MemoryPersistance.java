@@ -3,7 +3,6 @@ package components.persistence;
 import java.util.ArrayList;
 
 public class MemoryPersistance<T> {
-	
 	private ArrayList<T> persistanceList;
 	
 	public MemoryPersistance (ArrayList<T> persistanceList) {

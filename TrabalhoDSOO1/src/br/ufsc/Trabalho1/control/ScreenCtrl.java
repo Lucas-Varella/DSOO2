@@ -1,5 +1,6 @@
 package br.ufsc.Trabalho1.control;
 
+import br.ufsc.Trabalho1.model.Member;
 import br.ufsc.Trabalho1.view.*;
 
 public class ScreenCtrl {
@@ -24,7 +25,7 @@ public class ScreenCtrl {
 		manageMemberScreen = new ManageMemberScreen();
 		employeeScreen = new EmployeeScreen();
 		newMemberScreen = new NewMemberScreen();
-                manageEmployeeScreen = new ManageEmployeeScreen();
+        manageEmployeeScreen = new ManageEmployeeScreen();
 	}
 
 	public static ScreenCtrl getInstance() {
@@ -36,6 +37,7 @@ public class ScreenCtrl {
 	}
 
 	public void showMainScreen() {
+		mainScreen.labelEnable();
 		mainScreen.setVisible(true);
 		
 	}
@@ -44,8 +46,12 @@ public class ScreenCtrl {
 		memberScreen.setVisible(true);
 	}
 	
-	public void showTrainingScreen() {
-		trainingScreen.setVisible(true);;
+	public void showTrainingScreen(Member member) {
+		
+		trainingScreen.setMember(member);
+		trainingScreen.updateData();
+		trainingScreen.setVisible(true);
+		
 	}
 	
 	public void showNewEmployeeScreen() {
@@ -53,6 +59,7 @@ public class ScreenCtrl {
 	}
 	
 	public void showManageMemberScreen() {
+		manageMemberScreen.updateData();
 		manageMemberScreen.setVisible(true);
 	}
 

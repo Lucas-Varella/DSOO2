@@ -14,10 +14,6 @@ import br.ufsc.Trabalho1.model.Member;
 import br.ufsc.Trabalho1.model.Positions;
 import br.ufsc.Trabalho1.model.Staff;
 
-/**
- *
- * @author Raspbwolf
- */
 public class NewEmployeeScreen extends javax.swing.JFrame {
 
     /**

@@ -19,7 +19,9 @@ public class User {
 		this.setRg(rg);
 		this.setPhone(phone);
 	}
-
+	public String toString() {
+		return getName() + " / " + getCpf();
+	}
 	public String getCpf() {
 		return cpf;
 	}

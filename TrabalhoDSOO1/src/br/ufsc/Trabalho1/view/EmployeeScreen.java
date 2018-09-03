@@ -10,7 +10,7 @@ import br.ufsc.Trabalho1.control.ScreenCtrl;
 
 /**
  *
- * @author Raspbwolf
+ * .
  */
 public class EmployeeScreen extends javax.swing.JFrame {
 

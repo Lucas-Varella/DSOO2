@@ -1,8 +1,18 @@
 package br.ufsc.Trabalho1.view;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+import br.ufsc.Trabalho1.control.PersistanceCtrl;
 import br.ufsc.Trabalho1.control.ScreenCtrl;
+import br.ufsc.Trabalho1.model.Member;
 
 public class ManageMemberScreen extends javax.swing.JFrame {
 
@@ -34,7 +44,7 @@ public class ManageMemberScreen extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
-        editMemButton = new javax.swing.JButton();
+        detailsButton = new javax.swing.JButton();
         deleteMember = new javax.swing.JButton();
         returnButton = new javax.swing.JButton();
         manageTrainingButton = new javax.swing.JButton();
@@ -88,18 +98,23 @@ public class ManageMemberScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Member List", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
-
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", " " };
+        
+        ArrayList<Member> members = PersistanceCtrl.getInstance().getMemberList();
+    	Member[] strings = new Member[members.size()];
+    	for(int i = 0; i < members.size(); i++) {
+    		strings[i] = members.get(i);
+    	}
+        jList1.setModel(new javax.swing.AbstractListModel<Member>() {
+            
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Member getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jList1);
 
-        editMemButton.setText("Edit Member");
-        editMemButton.addActionListener(new java.awt.event.ActionListener() {
+        detailsButton.setText("Details");
+        detailsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editMemButtonActionPerformed(evt);
+                detailsButtonActionPerformed(evt);
             }
         });
 
@@ -117,7 +132,7 @@ public class ManageMemberScreen extends javax.swing.JFrame {
             }
         });
 
-        manageTrainingButton.setText("Manage Member");
+        manageTrainingButton.setText("Manage Training");
         manageTrainingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageTrainingButtonActionPerformed(evt);
@@ -134,7 +149,7 @@ public class ManageMemberScreen extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(deleteMember, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(editMemButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(detailsButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(returnButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(manageTrainingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(17, 17, 17))
@@ -145,7 +160,7 @@ public class ManageMemberScreen extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(editMemButton)
+                        .addComponent(detailsButton)
                         .addGap(34, 34, 34)
                         .addComponent(manageTrainingButton)
                         .addGap(41, 41, 41)
@@ -176,26 +191,165 @@ public class ManageMemberScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-	private void manMemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manMemButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_manMemButtonActionPerformed
-
+	
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
     	setVisible(false);
     	ScreenCtrl.getInstance().showMemberScreen();
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void deleteMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMemberActionPerformed
-        // TODO add your handling code here:
+    	PersistanceCtrl.getInstance().remove(jList1.getSelectedValue());
+    	updateData();
     }//GEN-LAST:event_deleteMemberActionPerformed
 
     private void manageTrainingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageTrainingButtonActionPerformed
-        // TODO add your handling code here:
+    	try {
+    		ScreenCtrl.getInstance().showTrainingScreen(jList1.getSelectedValue());
+    	}catch(NullPointerException e) {
+    		JOptionPane.showMessageDialog(null, "No Member Selected.", "Attention", 1);
+    	}
     }//GEN-LAST:event_manageTrainingButtonActionPerformed
-    private void editMemButtonActionPerformed(ActionEvent evt) {
-    	ScreenCtrl.getInstance().showTrainingScreen();
-		
+    private void detailsButtonActionPerformed(ActionEvent evt) {
+    	try {
+	    	class DetailsPanel extends javax.swing.JFrame {
+	
+	    	    
+	    	    public DetailsPanel() {
+	    	        initComponents();
+	    	    }
+	
+	    	    /**
+	    	     * This method is called from within the constructor to initialize the form.
+	    	     * WARNING: Do NOT modify this code. The content of this method is always
+	    	     * regenerated by the Form Editor.
+	    	     */
+	    	    @SuppressWarnings("unchecked")
+	    	    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+	    	    private void initComponents() {
+	
+	    	        jPanel1 = new javax.swing.JPanel();
+	    	        jLabel1 = new javax.swing.JLabel();
+	    	        jLabel2 = new javax.swing.JLabel();
+	    	        jLabel3 = new javax.swing.JLabel();
+	    	        jLabel4 = new javax.swing.JLabel();
+	    	        jLabel5 = new javax.swing.JLabel();
+	    	        jLabel6 = new javax.swing.JLabel();
+	    	        okButton = new javax.swing.JButton();
+	
+	    	        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+	
+	    	        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Member Details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18))); // NOI18N
+	
+	    	        jLabel1.setText("Employee's Name:     " + jList1.getSelectedValue().getName());
+	
+	    	        jLabel3.setText("Employee's RG:     " + jList1.getSelectedValue().getRg());
+	
+	    	        jLabel4.setText("Employee's Address:     " + jList1.getSelectedValue().getAddress());
+	
+	    	        jLabel5.setText("Employee's Phone:     " + jList1.getSelectedValue().getPhone());
+	
+	    	        jLabel6.setText("Employee's Birthday:     " + jList1.getSelectedValue().getBirthday());
+	
+	    	        jLabel2.setText("Employee's CPF:     " + jList1.getSelectedValue().getCpf());
+	
+	    	        okButton.setText("OK");
+	    	        okButton.addActionListener(new java.awt.event.ActionListener() {
+	    	            public void actionPerformed(java.awt.event.ActionEvent evt) {
+	    	                okButtonActionPerformed(evt);
+	    	            }
+	    	        });
+	
+	    	        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+	    	        jPanel1.setLayout(jPanel1Layout);
+	    	        jPanel1Layout.setHorizontalGroup(
+	    	            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+	    	            .addGroup(jPanel1Layout.createSequentialGroup()
+	    	                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+	    	                    .addGroup(jPanel1Layout.createSequentialGroup()
+	    	                        .addGap(35, 35, 35)
+	    	                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+	    	                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+	    	                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+	    	                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+	    	                        .addGap(92, 92, 92)
+	    	                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+	    	                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+	    	                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+	    	                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+	    	                    .addGroup(jPanel1Layout.createSequentialGroup()
+	    	                        .addGap(106, 106, 106)
+	    	                        .addComponent(okButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+	    	                        .addGap(42, 42, 42)))
+	    	                .addGap(92, 92, 92))
+	    	        );
+	    	        jPanel1Layout.setVerticalGroup(
+	    	            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+	    	            .addGroup(jPanel1Layout.createSequentialGroup()
+	    	                .addGap(23, 23, 23)
+	    	                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+	    	                    .addComponent(jLabel1)
+	    	                    .addComponent(jLabel4))
+	    	                .addGap(18, 18, 18)
+	    	                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+	    	                    .addComponent(jLabel2)
+	    	                    .addComponent(jLabel5))
+	    	                .addGap(18, 18, 18)
+	    	                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+	    	                    .addComponent(jLabel3)
+	    	                    .addComponent(jLabel6))
+	    	                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+	    	                .addComponent(okButton))
+	    	        );
+	
+	    	        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+	    	        getContentPane().setLayout(layout);
+	    	        layout.setHorizontalGroup(
+	    	            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+	    	            .addGroup(layout.createSequentialGroup()
+	    	                .addContainerGap()
+	    	                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+	    	                .addContainerGap())
+	    	        );
+	    	        layout.setVerticalGroup(
+	    	            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+	    	            .addGroup(layout.createSequentialGroup()
+	    	                .addContainerGap()
+	    	                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+	    	                .addContainerGap())
+	    	        );
+	
+	    	        pack();
+	    	    }// </editor-fold>                        
+	
+	    	    private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {                                         
+	    	        setVisible(false);
+	    	    }                                        
+	
+	    	    /**
+	    	     * @param args the command line arguments
+	    	     */
+	
+	    	    // Variables declaration - do not modify                     
+	    	    private javax.swing.JLabel jLabel1;
+	    	    private javax.swing.JLabel jLabel2;
+	    	    private javax.swing.JLabel jLabel3;
+	    	    private javax.swing.JLabel jLabel4;
+	    	    private javax.swing.JLabel jLabel5;
+	    	    private javax.swing.JLabel jLabel6;
+	    	    private javax.swing.JPanel jPanel1;
+	    	    private javax.swing.JButton okButton;
+	    	    // End of variables declaration                   
+	    	}
+	    	DetailsPanel details = new DetailsPanel();
+	    	details.setVisible(true);
+    	}catch(NullPointerException e) {
+    		JOptionPane.showMessageDialog(null, "No Member Selected.", "Attention", 1);
+    	}
+
+	
 	}
+    
+
 //s
     /**
      * @param args the command line arguments
@@ -203,11 +357,11 @@ public class ManageMemberScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton deleteMember;
-    private javax.swing.JButton editMemButton;
+    private javax.swing.JButton detailsButton;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<Member> jList1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JPanel jPanel1;
@@ -219,4 +373,18 @@ public class ManageMemberScreen extends javax.swing.JFrame {
     private javax.swing.JButton manageTrainingButton;
     private javax.swing.JButton returnButton;
     // End of variables declaration//GEN-END:variables
+	public void updateData() {
+		ArrayList<Member> members = PersistanceCtrl.getInstance().getMemberList();
+    	Member[] strings = new Member[members.size()];
+    	for(int i = 0; i < members.size(); i++) {
+    		strings[i] = members.get(i);
+    	}
+        jList1.setModel(new javax.swing.AbstractListModel<Member>() {
+            
+            public int getSize() { return strings.length; }
+            public Member getElementAt(int i) { return strings[i]; }
+        });
+        this.repaint();
+		
+	}
 }

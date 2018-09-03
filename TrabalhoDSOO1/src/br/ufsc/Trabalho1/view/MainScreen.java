@@ -181,4 +181,9 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JButton logoffButton;
     private javax.swing.JButton memScreenButton;
     // End of variables declaration//GEN-END:variables
+	public void labelEnable() {
+		jLabel1.setText(MainController.getInstance().getLogged().getName());
+		jLabel2.setText(MainController.getInstance().getLogged().getPosition().name());
+		
+	}
 }
