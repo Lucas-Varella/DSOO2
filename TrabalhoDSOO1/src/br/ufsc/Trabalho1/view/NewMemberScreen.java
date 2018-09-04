@@ -48,26 +48,23 @@ public class NewMemberScreen extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         confirmButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
-       
         
-
+        addrTf.setText("");
+        phoneTf.setText("");
+        bdayTf.setText("");
+        rgTf.setText("");
+        cpfTf.setText("");
+        nameTf.setText("");
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "New Member", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
-
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "New Member", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18
+      
         jLabel6.setText("Address :");
-
-        
-
         jLabel5.setText("Phone :");
-
         jLabel4.setText("Birth Date :");
-
         jLabel3.setText("RG :");
-
         jLabel2.setText("CPF :");
-
-
         jLabel1.setText("Name :");
 
         confirmButton.setText("Confirm");
@@ -191,6 +188,12 @@ public class NewMemberScreen extends javax.swing.JFrame {
         		PersistanceCtrl.getInstance().add(new Member(""+cpf, ""+rg, name, bday, address, ""+phone));
 		        JOptionPane.showMessageDialog(null, "Member " + name + " created.", "Attention", 1);
 		        setVisible(false);
+		        addrTf.setText("");
+		        phoneTf.setText("");
+		        bdayTf.setText("");
+		        rgTf.setText("");
+		        cpfTf.setText("");
+		        nameTf.setText("");
 		        ScreenCtrl.getInstance().showMemberScreen();
         	}else {
 				JOptionPane.showMessageDialog(null, "Please fill all fields.", "Attention", 1);

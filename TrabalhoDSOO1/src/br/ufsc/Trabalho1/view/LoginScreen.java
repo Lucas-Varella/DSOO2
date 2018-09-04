@@ -30,6 +30,9 @@ public class LoginScreen extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         Exit = new javax.swing.JButton();
         OK = new javax.swing.JButton();
+        
+        jTextField1.setText("");
+        jTextField2.setText("");
 
         jLabel1.setText("jLabel1");
 
@@ -139,6 +142,9 @@ public class LoginScreen extends javax.swing.JFrame {
     	try {
 	    	if (MainController.getInstance().isValid(jTextField1.getText(), jTextField2.getText())) {
 		    	setVisible(false);
+		    	initComponents();
+		        jTextField1.setText("");
+		        jTextField2.setText("");
 		    	ScreenCtrl.getInstance().showMainScreen();
 		    	
 	    	} else {

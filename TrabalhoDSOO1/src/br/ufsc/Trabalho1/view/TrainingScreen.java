@@ -1,24 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.ufsc.Trabalho1.view;
 
 import java.util.ArrayList;
 
 import br.ufsc.Trabalho1.control.PersistanceCtrl;
+import br.ufsc.Trabalho1.control.ScreenCtrl;
 import br.ufsc.Trabalho1.model.Member;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 /**
  *
  * @author Raspbwolf
  */
-public class TrainingScreen extends javax.swing.JPanel {
+public class TrainingScreen extends javax.swing.JFrame {
 
-    /**
-     * Creates new form trainingScreen
-     */
+    
     public TrainingScreen() {
         initComponents();
     }
@@ -33,64 +33,69 @@ public class TrainingScreen extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        memNameLabel = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        memTrainList = new javax.swing.JList<>();
-        newTrainingButton = new javax.swing.JButton();
-        removeExeButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<String>();
+        addTrainButton = new javax.swing.JButton();
+        removeTrainButton = new javax.swing.JButton();
         returnButton = new javax.swing.JButton();
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Training Screen", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        memNameLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        memNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        memNameLabel.setText("MEMBERNAME");
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Training", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
 
+        jScrollPane1.setViewportView(jList1);
 
-       
-        jScrollPane2.setViewportView(memTrainList);
+        addTrainButton.setText("Add Training");
+        addTrainButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addTrainButtonActionPerformed(evt);
+            }
+        });
 
-        newTrainingButton.setText("New Exercise");
-
-        removeExeButton.setText("Remove Exercise");
+        removeTrainButton.setText("Remove Training");
+        removeTrainButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeTrainButtonActionPerformed(evt);
+            }
+        });
 
         returnButton.setText("Return");
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2)
-                    .addComponent(memNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(newTrainingButton, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                        .addGap(69, 69, 69)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(removeExeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(returnButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(14, 14, 14))
+                        .addComponent(addTrainButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(removeTrainButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(52, 52, 52)
+                        .addComponent(returnButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(0, 0, 0))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(memNameLabel)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(removeExeButton)
-                    .addComponent(newTrainingButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(returnButton)
+                    .addComponent(addTrainButton)
+                    .addComponent(removeTrainButton)
+                    .addComponent(returnButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -106,31 +111,53 @@ public class TrainingScreen extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+        ScreenCtrl.getInstance().showManageMemberScreen();
+    }//GEN-LAST:event_returnButtonActionPerformed
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel memNameLabel;
-    private javax.swing.JList<String> memTrainList;
-    private javax.swing.JButton newTrainingButton;
-    private javax.swing.JButton removeExeButton;
-    private javax.swing.JButton returnButton;
-	private Member member;
-    // End of variables declaration//GEN-END:variables
-	public void setMember(Member member) {
-		this.member = member;
-		
-	}
-	public void updateData() {
-		
-        memTrainList.setModel(new javax.swing.AbstractListModel<String>() {
-        	String[] strings = member.getTrain().toArray(new String[member.getTrain().size()]);
+    private void addTrainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTrainButtonActionPerformed
+       ScreenCtrl.getInstance().showNewTrainingScreen(member, this);
+       setVisible(false);
+    }//GEN-LAST:event_addTrainButtonActionPerformed
+
+    private void removeTrainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeTrainButtonActionPerformed
+        ArrayList<String> training = member.getTrain();
+        training.remove(jList1.getSelectedValue());
+        member.setTrain(training);
+        updateData();
+        
+    }//GEN-LAST:event_removeTrainButtonActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public void updateData() {
+		ArrayList<String> trainings = member.getTrain();
+    	String[] strings = new String[trainings.size()];
+    	for(int i = 0; i < trainings.size(); i++) {
+    		strings[i] = trainings.get(i);
+    	}
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
         this.repaint();
 		
 	}
+    public void setMember(Member member) {
+    	this.member = member;
+    }
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addTrainButton;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton removeTrainButton;
+    private javax.swing.JButton returnButton;
+    private Member member;
+    // End of variables declaration//GEN-END:variables
 }

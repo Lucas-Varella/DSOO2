@@ -6,21 +6,25 @@ import java.util.List;
 
 public class Member extends User{
 
-	private List<String> training;
+	private ArrayList<String> training;
 	
 	public Member(String cpf, String rg, String name, String birthday, String address, String phone) {
 		super(cpf, rg, name, birthday, address, phone);
-		this.setTrain(new ArrayList());
+		this.training = new ArrayList<String>();
+		this.training.add("Treadmill");
 	}
 	public String toString() {
 		return getName() + " / " + getCpf();
 	}
-	public List<String> getTrain() {
+	public ArrayList<String> getTrain() {
 		return training;
 	}
-
-	public void setTrain(List<String> train) {
+	
+	public void setTrain(ArrayList<String> train) {
 		this.training = train;
+	}
+	public void addExercise(String string) {
+		this.training.add(string);
 	}
 	//thecommit
 

@@ -205,6 +205,7 @@ public class ManageMemberScreen extends javax.swing.JFrame {
     private void manageTrainingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageTrainingButtonActionPerformed
     	try {
     		ScreenCtrl.getInstance().showTrainingScreen(jList1.getSelectedValue());
+    		setVisible(false);
     	}catch(NullPointerException e) {
     		JOptionPane.showMessageDialog(null, "No Member Selected.", "Attention", 1);
     	}

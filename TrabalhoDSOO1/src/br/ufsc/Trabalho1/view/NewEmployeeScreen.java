@@ -55,7 +55,17 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
         confirmButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         positionCb = new javax.swing.JComboBox<>();
-
+        
+        addrTf.setText("");
+        phoneTf.setText("");
+        bdayTf.setText("");
+        rgTf.setText("");
+        cpfTf.setText("");
+        nameTf.setText("");
+        salaryTf.setText("");
+        userTf.setText("");
+        passTf.setText("");
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "New Employee", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
@@ -239,6 +249,16 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
         		PersistanceCtrl.getInstance().add(new Staff(""+cpf, ""+rg, name, bday, address, ""+phone, p, ""+salary, username, password));
 		        JOptionPane.showMessageDialog(null, "Member " + name + " created.", "Attention", 1);
 		        setVisible(false);
+		        initComponents();
+		        addrTf.setText("");
+		        phoneTf.setText("");
+		        bdayTf.setText("");
+		        rgTf.setText("");
+		        cpfTf.setText("");
+		        nameTf.setText("");
+		        salaryTf.setText("");
+		        userTf.setText("");
+		        passTf.setText("");
 		        ScreenCtrl.getInstance().showEmployeeScreen();
         	}else {
 				JOptionPane.showMessageDialog(null, "Please fill all fields.", "Attention", 1);
