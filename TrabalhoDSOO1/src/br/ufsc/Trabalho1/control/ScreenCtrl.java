@@ -15,7 +15,6 @@ public class ScreenCtrl {
 	private EmployeeScreen employeeScreen;
 	private NewMemberScreen newMemberScreen;
     private ManageEmployeeScreen manageEmployeeScreen;
-    private NewTrainingScreen newTrainingScreen;
 	
 	public ScreenCtrl() {
 		loginScreen = new LoginScreen(this);
@@ -79,10 +78,5 @@ public class ScreenCtrl {
     	manageEmployeeScreen.setVisible(true);
     }
 
-	public void showNewTrainingScreen(Member member, TrainingScreen trainingScreen) {
-		newTrainingScreen = new NewTrainingScreen(trainingScreen);
-		newTrainingScreen.initComponents();
-		newTrainingScreen.setMember(member);
-		newTrainingScreen.setVisible(true);
-	}
+	
 }
