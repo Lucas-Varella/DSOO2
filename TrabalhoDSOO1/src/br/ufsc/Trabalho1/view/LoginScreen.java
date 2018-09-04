@@ -1,7 +1,8 @@
 package br.ufsc.Trabalho1.view;
 
-import br.ufsc.Trabalho1.control.ScreenCtrl;
 import br.ufsc.Trabalho1.control.MainController;
+import br.ufsc.Trabalho1.control.ScreenCtrl;
+
 import javax.swing.JOptionPane;
 
 public class LoginScreen extends javax.swing.JFrame {
@@ -9,7 +10,7 @@ public class LoginScreen extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public LoginScreen(ScreenCtrl screenCtrl) {
+    public LoginScreen() {
         initComponents();
     }
 
@@ -28,7 +29,7 @@ public class LoginScreen extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        Exit = new javax.swing.JButton();
+//        Exit = new javax.swing.JButton();
         OK = new javax.swing.JButton();
         
         jTextField1.setText("");
@@ -57,12 +58,12 @@ public class LoginScreen extends javax.swing.JFrame {
             }
         });
 
-        Exit.setText("Exit");
-        Exit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExitActionPerformed(evt);
-            }
-        });
+//        Exit.setText("Exit");
+//        Exit.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                ExitActionPerformed(evt);
+//            }
+//        });
 
         OK.setText("OK");
         OK.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +91,7 @@ public class LoginScreen extends javax.swing.JFrame {
                         .addGap(86, 86, 86)
                         .addComponent(OK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+//                        .addComponent(Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(60, 60, 60)))
                 .addContainerGap())
         );
@@ -107,7 +108,7 @@ public class LoginScreen extends javax.swing.JFrame {
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+//                    .addComponent(Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(OK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -142,9 +143,8 @@ public class LoginScreen extends javax.swing.JFrame {
     	try {
 	    	if (MainController.getInstance().isValid(jTextField1.getText(), jTextField2.getText())) {
 		    	setVisible(false);
-		    	initComponents();
-		        jTextField1.setText("");
-		        jTextField2.setText("");
+		        jTextField1.setText(null);
+		        jTextField2.setText(null);
 		    	ScreenCtrl.getInstance().showMainScreen();
 		    	
 	    	} else {
@@ -190,7 +190,7 @@ public class LoginScreen extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginScreen(null).setVisible(true);
+                new LoginScreen().setVisible(true);
             }
         });
     }

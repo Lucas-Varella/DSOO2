@@ -17,7 +17,7 @@ public class ScreenCtrl {
     private ManageEmployeeScreen manageEmployeeScreen;
 	
 	public ScreenCtrl() {
-		loginScreen = new LoginScreen(this);
+		loginScreen = new LoginScreen();
 		mainScreen = new MainScreen();
 		memberScreen = new MemberScreen();
 		trainingScreen = new TrainingScreen();

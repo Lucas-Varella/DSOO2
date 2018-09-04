@@ -249,7 +249,6 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
         		PersistanceCtrl.getInstance().add(new Staff(""+cpf, ""+rg, name, bday, address, ""+phone, p, ""+salary, username, password));
 		        JOptionPane.showMessageDialog(null, "Member " + name + " created.", "Attention", 1);
 		        setVisible(false);
-		        initComponents();
 		        addrTf.setText("");
 		        phoneTf.setText("");
 		        bdayTf.setText("");
