@@ -15,6 +15,7 @@ public class ScreenCtrl {
 	private EmployeeScreen employeeScreen;
 	private NewMemberScreen newMemberScreen;
     private ManageEmployeeScreen manageEmployeeScreen;
+    private FrequencyScreen frequencyScreen;
 	
 	public ScreenCtrl() {
 		loginScreen = new LoginScreen();
@@ -26,6 +27,7 @@ public class ScreenCtrl {
 		employeeScreen = new EmployeeScreen();
 		newMemberScreen = new NewMemberScreen();
         manageEmployeeScreen = new ManageEmployeeScreen();
+        frequencyScreen = new FrequencyScreen();
 	}
 
 	public static ScreenCtrl getInstance() {
@@ -77,6 +79,12 @@ public class ScreenCtrl {
     	manageEmployeeScreen.updateData();
     	manageEmployeeScreen.setVisible(true);
     }
+
+	public void showFrequencyScreen(Member member) {
+		frequencyScreen.setMember(member);
+		frequencyScreen.setVisible(true);
+		
+	}
 
 	
 }

@@ -48,6 +48,7 @@ public class ManageMemberScreen extends javax.swing.JFrame {
         deleteMember = new javax.swing.JButton();
         returnButton = new javax.swing.JButton();
         manageTrainingButton = new javax.swing.JButton();
+        freqButton = new javax.swing.JButton();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -98,20 +99,11 @@ public class ManageMemberScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Member List", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
+
         
-        ArrayList<Member> members = PersistanceCtrl.getInstance().getMemberList();
-    	Member[] strings = new Member[members.size()];
-    	for(int i = 0; i < members.size(); i++) {
-    		strings[i] = members.get(i);
-    	}
-        jList1.setModel(new javax.swing.AbstractListModel<Member>() {
-            
-            public int getSize() { return strings.length; }
-            public Member getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(jList1);
 
-        detailsButton.setText("Details");
+        detailsButton.setText("See Details");
         detailsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 detailsButtonActionPerformed(evt);
@@ -139,19 +131,27 @@ public class ManageMemberScreen extends javax.swing.JFrame {
             }
         });
 
+        freqButton.setText("Manage Frequency");
+        freqButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                freqButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(deleteMember, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(detailsButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(returnButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(manageTrainingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(manageTrainingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(freqButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(17, 17, 17))
         );
         jPanel1Layout.setVerticalGroup(
@@ -161,9 +161,11 @@ public class ManageMemberScreen extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(detailsButton)
-                        .addGap(34, 34, 34)
+                        .addGap(18, 18, 18)
                         .addComponent(manageTrainingButton)
-                        .addGap(41, 41, 41)
+                        .addGap(18, 18, 18)
+                        .addComponent(freqButton)
+                        .addGap(18, 18, 18)
                         .addComponent(deleteMember)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(returnButton)))
@@ -210,6 +212,15 @@ public class ManageMemberScreen extends javax.swing.JFrame {
     		JOptionPane.showMessageDialog(null, "No Member Selected.", "Attention", 1);
     	}
     }//GEN-LAST:event_manageTrainingButtonActionPerformed
+
+    private void freqButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_freqButtonActionPerformed
+	    try {    
+    		ScreenCtrl.getInstance().showFrequencyScreen(jList1.getSelectedValue());
+	        setVisible(false);
+	    }catch(NullPointerException e) {
+    		JOptionPane.showMessageDialog(null, "No Member Selected.", "Attention", 1);
+    	}
+    }//GEN-LAST:event_freqButtonActionPerformed
     private void detailsButtonActionPerformed(ActionEvent evt) {
     	try {
 	    	class DetailsPanel extends javax.swing.JFrame {
@@ -241,17 +252,17 @@ public class ManageMemberScreen extends javax.swing.JFrame {
 	
 	    	        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Member Details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18))); // NOI18N
 	
-	    	        jLabel1.setText("Employee's Name:     " + jList1.getSelectedValue().getName());
+	    	        jLabel1.setText("Member's Name:     " + jList1.getSelectedValue().getName());
 	
-	    	        jLabel3.setText("Employee's RG:     " + jList1.getSelectedValue().getRg());
+	    	        jLabel3.setText("Member's RG:     " + jList1.getSelectedValue().getRg());
 	
-	    	        jLabel4.setText("Employee's Address:     " + jList1.getSelectedValue().getAddress());
+	    	        jLabel4.setText("Member's Address:     " + jList1.getSelectedValue().getAddress());
 	
-	    	        jLabel5.setText("Employee's Phone:     " + jList1.getSelectedValue().getPhone());
+	    	        jLabel5.setText("Member's Phone:     " + jList1.getSelectedValue().getPhone());
 	
-	    	        jLabel6.setText("Employee's Birthday:     " + jList1.getSelectedValue().getBirthday());
+	    	        jLabel6.setText("Member's Birthday:     " + jList1.getSelectedValue().getBirthday());
 	
-	    	        jLabel2.setText("Employee's CPF:     " + jList1.getSelectedValue().getCpf());
+	    	        jLabel2.setText("Member's CPF:     " + jList1.getSelectedValue().getCpf());
 	
 	    	        okButton.setText("OK");
 	    	        okButton.addActionListener(new java.awt.event.ActionListener() {
@@ -359,6 +370,7 @@ public class ManageMemberScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton deleteMember;
     private javax.swing.JButton detailsButton;
+    private javax.swing.JButton freqButton;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
@@ -373,6 +385,7 @@ public class ManageMemberScreen extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton manageTrainingButton;
     private javax.swing.JButton returnButton;
+    private Member member;
     // End of variables declaration//GEN-END:variables
 	public void updateData() {
 		ArrayList<Member> members = PersistanceCtrl.getInstance().getMemberList();

@@ -120,6 +120,7 @@ public class TrainingScreen extends javax.swing.JFrame {
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         ScreenCtrl.getInstance().showManageMemberScreen();
+        setVisible(false);
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void addTrainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTrainButtonActionPerformed
