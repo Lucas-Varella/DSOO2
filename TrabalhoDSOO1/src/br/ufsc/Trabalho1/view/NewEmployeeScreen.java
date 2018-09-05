@@ -244,7 +244,10 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
 	        String username = userTf.getText();
 	        String password = passTf.getText();
 	        
-	        if (!MainController.getInstance().cpfExists(cpfTf.getText()) && !MainController.getInstance().rgExists(rgTf.getText())) {
+	        if (!MainController.getInstance().cpfExists(cpfTf.getText()) ) {
+	        	if(!MainController.getInstance().rgExists(rgTf.getText())) {
+	        		
+	        	
 	        
 	            if(!(name.equals("") || address.equals("") ||  bday.equals(""))) {
 	        		PersistanceCtrl.getInstance().add(new Staff(""+cpf, ""+rg, name, bday, address, ""+phone, p, ""+salary, username, password));
@@ -264,9 +267,13 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
 					JOptionPane.showMessageDialog(null, "Please fill all fields.", "Attention", 1);
 				}   
 	        } else {
-				JOptionPane.showMessageDialog(null, "This CPF or RG already exists", "Attention", 1);
+				JOptionPane.showMessageDialog(null, "This RG already exists", "Attention", 1);
 
 	        }
+    	} else {
+			JOptionPane.showMessageDialog(null, "This CPF already exists", "Attention", 1);
+
+        }
 	            
 		}catch(NullPointerException exception) {
 			JOptionPane.showMessageDialog(null, "Please fill all fields.", "Attention", 1);

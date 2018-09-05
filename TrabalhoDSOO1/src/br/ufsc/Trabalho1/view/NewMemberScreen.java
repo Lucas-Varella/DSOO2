@@ -185,7 +185,8 @@ public class NewMemberScreen extends javax.swing.JFrame {
 	        int rg = Integer.parseInt(rgTf.getText());
 	        int cpf = Integer.parseInt(cpfTf.getText());
 	        
-	        if (!MainController.getInstance().cpfMemberExists(cpfTf.getText()) && !MainController.getInstance().rgMemberExists(rgTf.getText())) {
+	        if (!MainController.getInstance().cpfMemberExists(cpfTf.getText())) {
+	        	if(!MainController.getInstance().rgMemberExists(rgTf.getText())) {
 	        	
 	        
 	            if(!(name.equals("") || ("" + phone).equals("") || ("" + rg).equals("") || ("" + cpf).equals("") || address.equals("") ||  bday.equals(""))) {
@@ -203,7 +204,11 @@ public class NewMemberScreen extends javax.swing.JFrame {
 					JOptionPane.showMessageDialog(null, "Please fill all fields.", "Attention", 1);
 				}   
 	        } else {
-				JOptionPane.showMessageDialog(null, "This CPF or RG already exists", "Attention", 1);
+				JOptionPane.showMessageDialog(null, "This RG already exists", "Attention", 1);
+
+	        }
+	        }else {
+				JOptionPane.showMessageDialog(null, "This CPF already exists", "Attention", 1);
 
 	        }
 	        
