@@ -7,6 +7,7 @@ package br.ufsc.Trabalho1.view;
 
 import javax.swing.JOptionPane;
 
+import br.ufsc.Trabalho1.control.MainController;
 import br.ufsc.Trabalho1.control.PersistanceCtrl;
 import br.ufsc.Trabalho1.control.ScreenCtrl;
 import br.ufsc.Trabalho1.model.Member;
@@ -184,21 +185,28 @@ public class NewMemberScreen extends javax.swing.JFrame {
 	        int rg = Integer.parseInt(rgTf.getText());
 	        int cpf = Integer.parseInt(cpfTf.getText());
 	        
-            if(!(name.equals("") || ("" + phone).equals("") || ("" + rg).equals("") || ("" + cpf).equals("") || address.equals("") ||  bday.equals(""))) {
-        		PersistanceCtrl.getInstance().add(new Member(""+cpf, ""+rg, name, bday, address, ""+phone));
-		        JOptionPane.showMessageDialog(null, "Member " + name + " created.", "Attention", 1);
-		        setVisible(false);
-		        addrTf.setText("");
-		        phoneTf.setText("");
-		        bdayTf.setText("");
-		        rgTf.setText("");
-		        cpfTf.setText("");
-		        nameTf.setText("");
-		        ScreenCtrl.getInstance().showMemberScreen();
-        	}else {
-				JOptionPane.showMessageDialog(null, "Please fill all fields.", "Attention", 1);
-			}   
-			
+	        if (!MainController.getInstance().cpfMemberExists(cpfTf.getText()) && !MainController.getInstance().rgMemberExists(rgTf.getText())) {
+	        	
+	        
+	            if(!(name.equals("") || ("" + phone).equals("") || ("" + rg).equals("") || ("" + cpf).equals("") || address.equals("") ||  bday.equals(""))) {
+	        		PersistanceCtrl.getInstance().add(new Member(""+cpf, ""+rg, name, bday, address, ""+phone));
+			        JOptionPane.showMessageDialog(null, "Member " + name + " created.", "Attention", 1);
+			        setVisible(false);
+			        addrTf.setText("");
+			        phoneTf.setText("");
+			        bdayTf.setText("");
+			        rgTf.setText("");
+			        cpfTf.setText("");
+			        nameTf.setText("");
+			        ScreenCtrl.getInstance().showMemberScreen();
+	        	}else {
+					JOptionPane.showMessageDialog(null, "Please fill all fields.", "Attention", 1);
+				}   
+	        } else {
+				JOptionPane.showMessageDialog(null, "This CPF or RG already exists", "Attention", 1);
+
+	        }
+	        
 	}catch(NullPointerException exception) {
 		JOptionPane.showMessageDialog(null, "Please fill all fields.", "Attention", 1);
 	}catch(NumberFormatException e) {

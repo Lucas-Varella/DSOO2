@@ -51,12 +51,38 @@ public class MainController {
 		return exists;
 	}
 	
+	public boolean cpfMemberExists(String cpf) {
+		boolean exists = false;
+		
+		ArrayList<Member> memberList = PersistanceCtrl.getInstance().getMemberList();
+		
+		for (Member s :memberList) {
+			if (auth.authentication(s.getCpf(),cpf)) {
+				exists = true;
+			}
+		}
+		return exists;
+	}
+	
 	public boolean rgExists(String rg) {
 		boolean exists = false;
 		
 		ArrayList<Staff> staffList = PersistanceCtrl.getInstance().getStaffList();
 		
 		for (Staff s :staffList) {
+			if (auth.authentication(s.getRg(),rg)) {
+				exists = true;
+			}
+		}
+		return exists;
+	}
+	
+	public boolean rgMemberExists(String rg) {
+		boolean exists = false;
+		
+		ArrayList<Member> memberList = PersistanceCtrl.getInstance().getMemberList();
+		
+		for (Member s :memberList) {
 			if (auth.authentication(s.getRg(),rg)) {
 				exists = true;
 			}
