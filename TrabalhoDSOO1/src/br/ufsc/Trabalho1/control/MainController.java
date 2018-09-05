@@ -38,6 +38,31 @@ public class MainController {
 		
 	}
 	
+	public boolean cpfExists(String cpf) {
+		boolean exists = false;
+		
+		ArrayList<Staff> staffList = PersistanceCtrl.getInstance().getStaffList();
+		
+		for (Staff s :staffList) {
+			if (auth.authentication(s.getCpf(),cpf)) {
+				exists = true;
+			}
+		}
+		return exists;
+	}
+	
+	public boolean rgExists(String rg) {
+		boolean exists = false;
+		
+		ArrayList<Staff> staffList = PersistanceCtrl.getInstance().getStaffList();
+		
+		for (Staff s :staffList) {
+			if (auth.authentication(s.getRg(),rg)) {
+				exists = true;
+			}
+		}
+		return exists;
+	}
 
 	public boolean isValid(String username, String password) throws Exception {
 		

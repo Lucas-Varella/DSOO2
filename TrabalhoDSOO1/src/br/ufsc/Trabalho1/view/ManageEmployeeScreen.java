@@ -172,7 +172,7 @@ public class ManageEmployeeScreen extends javax.swing.JFrame {
     	
     	    	        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     	
-    	    	        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Member Details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18))); // NOI18N
+    	    	        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Employee Details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18))); // NOI18N
     	
     	    	        jLabel1.setText("Employee's Name:     " + employeeList.getSelectedValue().getName());
     	

@@ -244,25 +244,30 @@ public class NewEmployeeScreen extends javax.swing.JFrame {
 	        String username = userTf.getText();
 	        String password = passTf.getText();
 	        
+	        if (!MainController.getInstance().cpfExists(cpfTf.getText()) && !MainController.getInstance().rgExists(rgTf.getText())) {
 	        
-            if(!(name.equals("") || address.equals("") ||  bday.equals(""))) {
-        		PersistanceCtrl.getInstance().add(new Staff(""+cpf, ""+rg, name, bday, address, ""+phone, p, ""+salary, username, password));
-		        JOptionPane.showMessageDialog(null, "Member " + name + " created.", "Attention", 1);
-		        setVisible(false);
-		        addrTf.setText("");
-		        phoneTf.setText("");
-		        bdayTf.setText("");
-		        rgTf.setText("");
-		        cpfTf.setText("");
-		        nameTf.setText("");
-		        salaryTf.setText("");
-		        userTf.setText("");
-		        passTf.setText("");
-		        ScreenCtrl.getInstance().showEmployeeScreen();
-        	}else {
-				JOptionPane.showMessageDialog(null, "Please fill all fields.", "Attention", 1);
-			}   
-			
+	            if(!(name.equals("") || address.equals("") ||  bday.equals(""))) {
+	        		PersistanceCtrl.getInstance().add(new Staff(""+cpf, ""+rg, name, bday, address, ""+phone, p, ""+salary, username, password));
+			        JOptionPane.showMessageDialog(null, "Member " + name + " created.", "Attention", 1);
+			        setVisible(false);
+			        addrTf.setText("");
+			        phoneTf.setText("");
+			        bdayTf.setText("");
+			        rgTf.setText("");
+			        cpfTf.setText("");
+			        nameTf.setText("");
+			        salaryTf.setText("");
+			        userTf.setText("");
+			        passTf.setText("");
+			        ScreenCtrl.getInstance().showEmployeeScreen();
+	        	}else {
+					JOptionPane.showMessageDialog(null, "Please fill all fields.", "Attention", 1);
+				}   
+	        } else {
+				JOptionPane.showMessageDialog(null, "This CPF or RG already exists", "Attention", 1);
+
+	        }
+	            
 		}catch(NullPointerException exception) {
 			JOptionPane.showMessageDialog(null, "Please fill all fields.", "Attention", 1);
 		}catch(NumberFormatException e) {
