@@ -153,7 +153,7 @@ public class FrequencyScreen extends javax.swing.JFrame {
         member.setFrequency(dayCb.getSelectedIndex(), monthCb.getSelectedIndex(), yearCb.getSelectedIndex(), attendanceCheck.isSelected());
         JOptionPane.showMessageDialog(null, "" + member.getName() + "'s frequency updated, for date: " + (dayCb.getSelectedIndex()+1) + "/" + (monthCb.getSelectedIndex()+1) + "/" + (yearCb.getSelectedIndex()+1990));
 
-    }//GEN-LAST:event_okButtonActionPerformed
+    }//GEN-LAST:event_okButtonActionPerformeds
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
     	setVisible(false);
